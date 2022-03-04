@@ -39,9 +39,22 @@
 <br>
 <h5>Ativos Vinculados</h5>
 
+  <div class="links">
+    <%= link_to_add_association(form, :addativos, class: "btn-sm btn-success",
+      'data-association-insertion-node' => "#addativos",
+      'data-association-insertion-method' => "append") do %>
+      <i class="fa fa-plus" style="color:white"></i>
+    <% end %>
+  </div>
 
+  <hr/>
+    <div id='addativos'>
+      <%= form.fields_for :addativos do |addativo| %>
+        <%= render partial: "addativo_fields", locals: { f: addativo } %>
+      <% end %>
+    </div>
+  <hr/>
 
-<hr>
 <div class="text-right">
   <%= form.submit "Salvar", class:"btn btn-sm btn-primary" %>
 </div>

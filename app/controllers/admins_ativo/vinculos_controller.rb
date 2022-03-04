@@ -3,6 +3,9 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   before_action :set_usuario_select, only: [:new, :create, :edit, :update]
   before_action :set_area_select, only: [:new, :create, :edit, :update]
   before_action :set_subarea_select, only: [:new, :create, :edit, :update]
+  before_action :set_ativo_select, only: [:new, :create, :edit, :update]
+  before_action :set_condicao_select, only: [:new, :create, :edit, :update]
+  before_action :set_situacao_select, only: [:new, :create, :edit, :update]
 
   def index
     @vinculos = Vinculo.includes(:usuario, :area, :subarea)
@@ -47,7 +50,8 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
       :usuario_id, 
       :area_id, 
       :subarea_id, 
-      :observacao)
+      :observacao,
+      addativos_attributes: [:id, :ativo_id, :condicao_id, :situacao_id, :_destroy])
   end
 
   def set_vinculo
@@ -65,5 +69,19 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   def set_subarea_select
     @subarea_select = Subarea.all.pluck(:descricao, :id)
   end
+
+  def set_ativo_select
+    @ativo_select = Ativo.all.pluck(:tombo, :id)
+  end
+
+  def set_condicao_select
+    @condicao_select = Condicao.all.pluck(:descricao, :id)
+  end
+
+  def set_situacao_select
+    @situacao_select = Situacao.all.pluck(:descricao, :id)
+  end
+
+
 
 end

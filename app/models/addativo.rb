@@ -3,4 +3,9 @@ class Addativo < ApplicationRecord
   belongs_to :ativo
   belongs_to :condicao
   belongs_to :situacao
+
+  private
+
+
+
 end

@@ -1,0 +1,2 @@
+class Condicao < ApplicationRecord
+end

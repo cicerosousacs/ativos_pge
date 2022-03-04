@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  area: one
+  subarea: one
+  observacao: MyString
+
+two:
+  usuario: two
+  area: two
+  subarea: two
+  observacao: MyString

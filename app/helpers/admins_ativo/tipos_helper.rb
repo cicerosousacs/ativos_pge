@@ -1,0 +1,2 @@
+module AdminsAtivo::TiposHelper
+end

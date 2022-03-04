@@ -1,0 +1,55 @@
+<div class="row ">
+  <div class="col-lg-12">
+    <h1>Ativos</h1>
+      <%= link_to new_admins_ativo_ativo_path do %>
+        <i class="fa fa-plus btn-sm btn-success" style="color:write"></i>
+      <% end %>   
+  </div>
+</div>
+
+
+
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Tombo</th>
+      <th>Serial</th>
+      <th>
+      <th>
+      <!-- <th>Especificação -->
+      <!-- th>Data da Aquisição -->
+      <!-- <th>Garantia -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @ativos.each do |ativo| %>
+      <tr>
+        <td><%= ativo.tipo.descricao %></td>
+        <td><%= ativo.marca.nome %></td>
+        <td><%= ativo.modelo %></td>
+        <td><%= ativo.tombo %></td>
+        <td><%= ativo.serial %></td>
+        <!-- <td><%= ativo.especificacao %></td> -->
+        <!-- <td><%= ativo.data_aquisicao %></td> -->
+        <!-- <td><%= ativo.garantia %></td> -->
+        <td style="width: 10px">
+          <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+        <td style="width: 10px">
+          <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
+            <i class="fa fa-trash" style="color:red"></i>
+          <% end %>  
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @ativos %>

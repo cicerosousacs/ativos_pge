@@ -1,8 +1,11 @@
 class AdminsAtivo::VinculosController < AdminsAtivoController
   before_action :set_vinculo, only: [:edit, :update, :destroy]
+  before_action :set_usuario_select, only: [:new, :create, :edit, :update]
+  before_action :set_area_select, only: [:new, :create, :edit, :update]
+  before_action :set_subarea_select, only: [:new, :create, :edit, :update]
 
   def index
-    @vinculos = Vinculo.all
+    @vinculos = Vinculo.includes(:usuario, :area, :subarea)
   end
 
   def new
@@ -40,12 +43,27 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   private
 
   def params_vinculo
-    params_vinculo = params.require(:vinculo).permit(:usuario_id, :area_id, :subarea_id, :observacao)
+    params_vinculo = params.require(:vinculo).permit(
+      :usuario_id, 
+      :area_id, 
+      :subarea_id, 
+      :observacao)
   end
 
   def set_vinculo
     @vinculo = Vinculo.find(params[:id])
   end
 
+  def set_usuario_select
+    @usuario_select = Usuario.all.pluck(:nome, :id)
+  end
+
+  def set_area_select
+    @area_select = Area.all.pluck(:descricao, :id)
+  end
+
+  def set_subarea_select
+    @subarea_select = Subarea.all.pluck(:descricao, :id)
+  end
 
 end

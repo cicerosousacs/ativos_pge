@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vinculo: one
+  ativo: one
+  condicao: one
+  situacao: one
+
+two:
+  vinculo: two
+  ativo: two
+  condicao: two
+  situacao: two

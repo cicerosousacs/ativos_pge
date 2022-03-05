@@ -4,8 +4,4 @@ class Addativo < ApplicationRecord
   belongs_to :condicao
   belongs_to :situacao
 
-  private
-
-
-
 end

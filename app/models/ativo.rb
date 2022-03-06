@@ -4,7 +4,8 @@ class Ativo < ApplicationRecord
 
   has_one :condicao, through: :vinculo
 
-
+  # PAGINAÇÂO
+  paginates_per 10
 
   # VALIDAÇÔES
   validates :tombo, uniqueness: true

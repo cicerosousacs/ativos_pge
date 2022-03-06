@@ -10,8 +10,9 @@ namespace :dev do
       show_spinner("Criando BD...") { %x(rails db:create) }
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Admin padrão...") { %x(rails dev:add_default_admin) }
-      show_spinner("Tipos...") { %x(rails dev:add_types) }
-      show_spinner("Marcas...") { %x(rails dev:add_marcas) }
+      show_spinner("Ajuste 1 de 3...") { %x(rails dev:add_types) }
+      show_spinner("Ajuste 2 de 3...") { %x(rails dev:add_marcas) }
+      show_spinner("Ajuste 3 de 3...") { %x(rails dev:add_condicao) }
     else
       puts "Você não esta em ambiente de desenvolvimento!"
     end
@@ -46,6 +47,16 @@ namespace :dev do
       end
     end
   
+    desc "Adicionando Condicoes"
+    task add_condicao: :environment do
+      file_name = 'condicao.txt'
+      file_path = File.join(DEFAULT_FILE_PATH, file_name)
+  
+      File.open(file_path, 'r').each do |line|
+      Condicao.create!(nome: line.strip)
+      end
+    end
+
     private
      
     def show_spinner(msg_start, msg_end = "Sucesso!")

@@ -3,5 +3,16 @@ class Ativo < ApplicationRecord
   belongs_to :marca
 
   has_one :condicao, through: :vinculo
-  has_one :situacao, through: :vinculo
+
+
+
+  # VALIDAÇÔES
+  validates :tombo, uniqueness: true
+  
+  # METODOS
+  def ativo_description
+    "#{tipo.descricao} #{marca.nome} #{modelo}"
+  end
+
+
 end

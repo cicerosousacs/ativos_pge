@@ -13,6 +13,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
 
   def new
     @vinculo = Vinculo.new
+    #@addativos = Addativo.includes(:tipo, :marca)
   end
 
   def create
@@ -51,7 +52,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
       :area_id, 
       :subarea_id, 
       :observacao,
-      addativos_attributes: [:id, :ativo_id, :condicao_id, :descricao, :_destroy])
+      addativos_attributes: [:id, :ativo_id, :descricao, :condicao_id, :_destroy])
   end
 
   def set_vinculo

@@ -14,9 +14,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th>Marca</th>
-      <th>Modelo</th>
+      <th>Descrição</th>
       <th>Tombo</th>
       <th>Serial</th>
       <th>
@@ -29,9 +27,7 @@
   <tbody>
     <% @ativos.each do |ativo| %>
       <tr>
-        <td><%= ativo.tipo.descricao %></td>
-        <td><%= ativo.marca.nome %></td>
-        <td><%= ativo.modelo %></td>
+        <td><%= ativo.ativo_description %></td>
         <td><%= ativo.tombo %></td>
         <td><%= ativo.serial %></td>
         <!-- <td><%= ativo.especificacao %></td> -->

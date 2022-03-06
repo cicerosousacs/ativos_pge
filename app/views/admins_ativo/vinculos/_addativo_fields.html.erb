@@ -4,11 +4,11 @@
       <%= f.select("ativo_id", @ativo_select, {include_blank: 'Selecione...'}, class:"form-control")%>
     </div>
 
-    <div class="control col-md-5">
-      <%= f.select("ativo_id", @ativo_select, {include_blank: 'Selecione...'}, class:"form-control")%>
+    <div class="control col-md-6">
+      <%= f.collection_select(:ativo_id, Ativo.all, :id, :ativo_description, {include_blank: 'Selecione...'}, class:"form-control") %>
     </div>
 
-    <div class="control col-md-2">
+    <div class="control col-md-3">
       <%= f.select("condicao_id", @condicao_select, {include_blank: 'Selecione...'}, class:"form-control")%>
     </div>
 

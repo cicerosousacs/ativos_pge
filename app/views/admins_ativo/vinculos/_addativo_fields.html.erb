@@ -12,9 +12,6 @@
       <%= f.select("condicao_id", @condicao_select, {include_blank: 'Selecione...'}, class:"form-control")%>
     </div>
 
-    <div class="control col-md-2">
-      <%= f.select("situacao_id", @situacao_select, {include_blank: 'Selecione...'}, class:"form-control")%>
-    </div>
 
     <div class="control">
       <%= link_to_remove_association(f, data: {confirm: "Certeza?"}, class: "btn-sm btn-danger") do %>

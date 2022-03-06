@@ -1,2 +1,0 @@
-module AdminsAtivo::SituacaosHelper
-end

@@ -2,7 +2,7 @@ class AdminsAtivo::TiposController < AdminsAtivoController
   before_action :set_tipo, only: [:edit, :update, :destroy]
 
   def index
-    @tipos = Tipo.all.page(params[:page])
+    @tipos = Tipo.includes(:tipo, :marca).page(params[:page])
   end
 
   def new

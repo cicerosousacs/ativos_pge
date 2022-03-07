@@ -53,7 +53,7 @@ namespace :dev do
       file_path = File.join(DEFAULT_FILE_PATH, file_name)
   
       File.open(file_path, 'r').each do |line|
-      Condicao.create!(nome: line.strip)
+      Condicao.create!(descricao: line.strip)
       end
     end
 

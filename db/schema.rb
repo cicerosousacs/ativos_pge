@@ -40,12 +40,11 @@ ActiveRecord::Schema.define(version: 2022_03_04_012755) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
-    t.bigint "situacao_id"
+    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
-    t.index ["situacao_id"], name: "index_addativos_on_situacao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
   end
 
@@ -94,14 +93,6 @@ ActiveRecord::Schema.define(version: 2022_03_04_012755) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "situacaos", force: :cascade do |t|
-    t.bigint "condicao_id"
-    t.string "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["condicao_id"], name: "index_situacaos_on_condicao_id"
-  end
-
   create_table "subareas", force: :cascade do |t|
     t.bigint "area_id"
     t.string "descricao"
@@ -137,11 +128,9 @@ ActiveRecord::Schema.define(version: 2022_03_04_012755) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addativos", "ativos"
   add_foreign_key "addativos", "condicaos"
-  add_foreign_key "addativos", "situacaos"
   add_foreign_key "addativos", "vinculos"
   add_foreign_key "ativos", "marcas"
   add_foreign_key "ativos", "tipos"
-  add_foreign_key "situacaos", "condicaos"
   add_foreign_key "subareas", "areas"
   add_foreign_key "vinculos", "areas"
   add_foreign_key "vinculos", "subareas"

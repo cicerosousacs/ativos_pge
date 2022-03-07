@@ -223,6 +223,14 @@
       <% end %>
     <% end %>
 
+    <%= javascript_tag do %>
+      $(document).ready(function(){
+        $('.selectsearch').select2({
+          theme: 'bootstrap4',
+        });
+      });
+    <% end %>
+
 </body>
 
 </html>

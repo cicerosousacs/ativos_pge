@@ -18,17 +18,17 @@
 <div class="row g-3">
   <div class="control col-md-4">
     <%= form.label :usuario %> <br>
-    <%= form.select("usuario_id", @usuario_select, {include_blank: 'Selecione...'}, class:"form-control") %>
+    <%= form.select("usuario_id", @usuario_select, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
   </div>
 
   <div class="control col-md-4">
     <%= form.label :area %> <br>
-    <%= form.select("area_id", @area_select, {include_blank: 'Selecione...'}, class:"form-control") %>
+    <%= form.select("area_id", @area_select, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
   </div>
 
   <div class="control col-md-4">
     <%= form.label :subarea %> <br>
-    <%= form.select("subarea_id", @subarea_select, {include_blank: 'Selecione...'}, class:"form-control") %>
+    <%= form.select("subarea_id", @subarea_select, {include_blank: 'Selecione...'}, class:"form-control ") %>
   </div>
 
   <div class="control col-md-12">

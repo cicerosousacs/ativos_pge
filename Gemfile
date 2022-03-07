@@ -23,6 +23,8 @@ gem 'awesome_print' #ajuda a visualizar melhor no rails console, "ap" antes
 gem 'kaminari' #paginação
 gem 'kaminari-i18n' #tradução da paginação
 gem 'cocoon' #formularios aninhados
+gem 'select2-rails', '~> 4.0', '>= 4.0.3' #pesquisar dentro do select
+#gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

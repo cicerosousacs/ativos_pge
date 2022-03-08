@@ -13,33 +13,33 @@
 
 <%= form_with(model: [ :admins_ativo, @ativo ], local: true ) do |form| %>
 <div class="row g-3">
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <%= form.label :tipo %>
         <%= link_to new_admins_ativo_tipo_path do %>
           <i class="fa fa-plus" style="color:green"></i>
         <% end %>
     <%= form.select("tipo_id", @tipo_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
   </div>
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <%= form.label :marca %>
         <%= link_to new_admins_ativo_marca_path do %>
           <i class="fa fa-plus" style="color:green"></i>
         <% end %>
     <%= form.select("marca_id", @marca_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
   </div>
-  <div class="form-group col-md-8">
+  <div class="form-group col-md-6">
     <%= form.label :modelo %> <br>
     <%= form.text_field :modelo, class:"form-control" %>
   </div>
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <%= form.label :serial %> <br>
     <%= form.text_field :serial, class:"form-control" %>
   </div>
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <%= form.label :tombo %> <br>
     <%= form.text_field :tombo, class:"form-control" %>
   </div>
-  <div class="form-group col-md-8">
+  <div class="form-group col-md-6">
     <%= form.label :especificação %> <br>
     <%= form.text_area :especificacao, class:"form-control" %>
   </div>

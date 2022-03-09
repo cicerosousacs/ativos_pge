@@ -4,7 +4,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   before_action :set_marca_selects, only: [:new, :create, :edit, :update]
 
   def index
-    @ativos = Ativo.includes(:tipo, :marca).page(params[:page])
+    @ativos = Ativo.includes(:tipo, :marca).order("created_at DESC").page(params[:page])
   end
 
   def new

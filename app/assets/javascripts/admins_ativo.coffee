@@ -8,6 +8,6 @@
 //= require sb-admin-2
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require cocoon
-//= require @ttskch/select2-bootstrap4-theme/js/select2.min
+//= require select2
 
 

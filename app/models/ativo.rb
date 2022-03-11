@@ -16,5 +16,4 @@ class Ativo < ApplicationRecord
     "#{tipo.descricao} #{marca.nome} #{modelo}"
   end
 
-
 end

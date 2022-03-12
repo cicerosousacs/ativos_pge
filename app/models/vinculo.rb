@@ -6,11 +6,8 @@ class Vinculo < ApplicationRecord
   has_many :addativos, dependent: :destroy
   accepts_nested_attributes_for :addativos, reject_if: :all_blank, allow_destroy: true
 
+  
   # VALIDAÇÔES
-  #validates :usuario, uniqueness: true
-
-
-
-
+  validates_associated :addativos, uniqueness: true 
 
 end

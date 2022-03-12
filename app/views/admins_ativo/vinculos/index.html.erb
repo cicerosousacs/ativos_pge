@@ -12,9 +12,9 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Usuário</th>
       <th>Área</th>
       <th>Subárea</th>
+      <th>Usuário</th>
       <th>Observação</th>
       <th></th>
       <th></th>
@@ -23,9 +23,9 @@
   <tbody>
     <% @vinculos.each do |vinculo| %>
       <tr>
-        <td><%= vinculo.usuario.nome %></td>
         <td><%= vinculo.area.descricao %></td>
         <td><%= vinculo.subarea.descricao %></td>
+        <td><%= vinculo.usuario.nome %></td>
         <td><%= vinculo.observacao %></td>
         <td style="width: 10px">
           <%= link_to edit_admins_ativo_vinculo_path(vinculo) do %>

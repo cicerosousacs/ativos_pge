@@ -5,6 +5,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def index
     @ativos = Ativo.ultimo_ativo(params[:page])
+  end
 
   def new
     @ativo = Ativo.new

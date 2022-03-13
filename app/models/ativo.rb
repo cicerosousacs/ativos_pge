@@ -17,6 +17,7 @@ class Ativo < ApplicationRecord
   def ativo_description
     "#{tipo.descricao} #{marca.nome} #{modelo}"
   end
+  
   # N+1 e ordaneção por ultimo criado
   scope :ultimo_ativo, -> (page) {
     includes(:tipo, :marca).order("created_at DESC").page(page)

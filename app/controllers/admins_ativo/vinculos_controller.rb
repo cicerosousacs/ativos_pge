@@ -13,7 +13,9 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
 
   def new
     @vinculo = Vinculo.new
-    #@addativos = Addativo.includes(:tipo, :marca)
+  end
+
+  def atualiza_subarea
   end
 
   def create
@@ -78,9 +80,5 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   def set_condicao_select
     @condicao_select = Condicao.all.pluck(:descricao, :id)
   end
-
-
-
-
 
 end

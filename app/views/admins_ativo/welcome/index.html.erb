@@ -1,2 +1,17 @@
-<h1>AdminsAtivo::Welcome#index</h1>
-<p>Find me in app/views/admins_ativo/welcome/index.html.erb</p>
+
+<% @vinculos.each do |vinculo| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= vinculo.vinculo_descricao %></h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% vinculo.addativos.each do |addativo| %>
+          <li>
+            <%= addativo.ativo.ativo_description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

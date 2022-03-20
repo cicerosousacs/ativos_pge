@@ -10,4 +10,9 @@ class Vinculo < ApplicationRecord
   # VALIDAÇÔES
   validates_associated :addativos, uniqueness: true 
 
+
+  def vinculo_descricao
+    "#{area.descricao} #{subarea.descricao} - #{usuario.nome}" 
+  end
+
 end

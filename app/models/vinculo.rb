@@ -8,7 +8,7 @@ class Vinculo < ApplicationRecord
 
   
   # VALIDAÇÔES
-  validates_associated :addativos, uniqueness: true 
+  #validates :usuario_id, uniqueness: true 
 
 
   def vinculo_descricao

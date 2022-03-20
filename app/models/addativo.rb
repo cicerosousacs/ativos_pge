@@ -4,7 +4,8 @@ class Addativo < ApplicationRecord
   belongs_to :condicao
 
   # VALIDAÇÔES
-  #validates :ativo_id, uniqueness: true
+  
+
 
 
 end

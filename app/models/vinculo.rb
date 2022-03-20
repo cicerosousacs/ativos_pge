@@ -8,8 +8,11 @@ class Vinculo < ApplicationRecord
 
   
   # VALIDAÇÔES
-  #validates :usuario_id, uniqueness: true 
 
+
+
+
+  private
 
   def vinculo_descricao
     "#{area.descricao} #{subarea.descricao} - #{usuario.nome}" 

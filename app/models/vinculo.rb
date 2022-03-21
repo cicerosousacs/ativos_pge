@@ -10,10 +10,6 @@ class Vinculo < ApplicationRecord
   # VALIDAÇÔES
 
 
-
-
-  private
-
   def vinculo_descricao
     "#{area.descricao} #{subarea.descricao} - #{usuario.nome}" 
   end

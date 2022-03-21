@@ -3,9 +3,9 @@ class Addativo < ApplicationRecord
   belongs_to :ativo
   belongs_to :condicao
 
-  # VALIDAÇÔES
+  #VALIDAÇÔES
   
-
+  
 
 
 end

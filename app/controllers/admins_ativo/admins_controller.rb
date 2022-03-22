@@ -41,7 +41,7 @@ class AdminsAtivo::AdminsController < AdminsAtivoController
   private
 
   def params_admin
-    params_admin = params.require(:admin).permit(:email, :password, :password_confirmation)
+    params_admin = params.require(:admin).permit(:nome, :email, :password, :password_confirmation)
   end
 
   def set_admin

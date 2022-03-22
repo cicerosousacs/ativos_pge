@@ -40,7 +40,7 @@ class AdminsAtivo::UsuariosController < AdminsAtivoController
   private
 
   def params_usuario
-    params_usuario = params.require(:usuario).permit(:nome)
+    params_usuario = params.require(:usuario).permit(:nome, :suporte)
   end
 
   def set_usuario

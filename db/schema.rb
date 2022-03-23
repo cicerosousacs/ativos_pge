@@ -40,11 +40,13 @@ ActiveRecord::Schema.define(version: 2022_03_22_164502) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
-    t.string "descricao"
+    t.bigint "situacao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "descricao"
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
+    t.index ["situacao_id"], name: "index_addativos_on_situacao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
   end
 

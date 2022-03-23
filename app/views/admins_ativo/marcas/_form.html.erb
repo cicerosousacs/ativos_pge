@@ -15,9 +15,11 @@
 
   <div class="form-group">
     <%= form.label :marca %> <br>
-    <%= form.text_field :nome, class:"form-control bg-light border-6 small" %>
+    <%= form.text_field :nome, class:"form-control border-6 small" %>
   </div>
 
-  <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+  <div class="text-right">
+    <%= form.submit "Salvar", class:"btn btn-sm btn-primary" %>
+  </div>
 
 <% end %>

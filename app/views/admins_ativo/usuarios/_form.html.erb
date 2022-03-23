@@ -15,15 +15,18 @@
 
   <div class="form-group">
     <%= form.label :usuario %> <br>
-    <%= form.text_field :nome, class:"form-control bg-light border-6 small" %>
+    <%= form.text_field :nome, class:"form-control border-6 small" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :suporte %> <br>
-    <%= form.check_box :suporte, class:"form-check" %>
+  <div class="form-check">
+    <%= form.check_box :suporte, class:"form-check-input",  id:"flexCheckDefault" %>
+    <label class="form-check-label" for="flexCheckDefault">
+      Possui varios Vinculos?
+    </label>
   </div>
 
-<div class="text-right">
-  <%= form.submit "Salvar", class:"btn btn-sm btn-primary" %>
-</div>
+  <div class="text-right">
+    <%= form.submit "Salvar", class:"btn btn-sm btn-primary" %>
+  </div>
+
 <% end %>

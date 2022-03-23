@@ -21,6 +21,7 @@ namespace :dev do
     desc "Adiciona o administrador padrão"
     task add_default_admin: :environment do
       Admin.create!(
+        nome: 'Admin',
         email: 'admin@ativos.pge',
         password: DEFAULT_PASSWORD,
         password_confirmation: DEFAULT_PASSWORD

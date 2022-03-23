@@ -8,14 +8,16 @@ class Vinculo < ApplicationRecord
   accepts_nested_attributes_for :addativos, reject_if: :all_blank, allow_destroy: true
 
   # VALIDAÇÔES
-
+  validates :addativos, presence: true
   validates :usuario_id, uniqueness: true, unless: -> { usuario.suporte == true }
   # Outra forma de fazer a validação 
   #validates :usuario_id, uniqueness: true,
   #  unless: Proc.new { |u| u.usuario.suporte == true }
 
+  
+
   def vinculo_descricao
-    "#{area.descricao} #{subarea.descricao} - #{usuario.nome}" 
+    "#{area.descricao} - #{subarea.descricao} - #{usuario.nome}" 
   end
 
 end

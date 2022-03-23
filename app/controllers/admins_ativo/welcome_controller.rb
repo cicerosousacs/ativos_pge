@@ -1,6 +1,7 @@
 class AdminsAtivo::WelcomeController < AdminsAtivoController
+
   def index
-    @vinculos = Vinculo.includes(:area, :subarea, :usuario, :addativos)
+    @vinculos = Vinculo.all.order("created_at DESC")
   end
 
 

@@ -9,6 +9,7 @@ class Ativo < ApplicationRecord
   paginates_per 10
 
   # VALIDAÇÔES
+  validates :modelo, :serial, :tombo, presence: true
   validates :tombo, uniqueness: true
   
   # METODOS

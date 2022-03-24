@@ -14,7 +14,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   def create
     @ativo = Ativo.new(params_ativo)
     if @ativo.save()
-      redirect_to admins_ativo_ativos_path, notice: "ativo de Ativo criado. Parabéns!"
+      redirect_to admins_ativo_ativos_path, notice: "Ativo cadastrado. Parabéns!"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def update
     if @ativo.update(params_ativo)
-      redirect_to admins_ativo_ativos_path, notice: "ativo de Ativo atualizado. Sucesso!"
+      redirect_to admins_ativo_ativos_path, notice: "Ativo atualizado. Sucesso!"
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def destroy
     if @ativo.destroy
-      redirect_to admins_ativo_ativos_path, notice: "ativo de Ativo excluido. Feito!"
+      redirect_to admins_ativo_ativos_path, notice: "Ativo excluido. Feito!"
     else
       render :index
     end

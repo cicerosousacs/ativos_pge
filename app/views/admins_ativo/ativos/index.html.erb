@@ -13,7 +13,7 @@
   <thead>
     <tr>
       <th>
-        <input type="checkbox" id="all_ativos" name="all_ativos">
+        <input type="checkbox" id="all_ativos" name="all_ativos"></input>
       </th>
       <th>Descrição</th>
       <th>Tombo</th>
@@ -27,7 +27,7 @@
   <tbody>
     <% @ativos.each do |ativo| %>
       <tr>
-        <td><%= check_box_tag "lista_ativos[]", ativo.id -%></td>
+        <td><%= check_box_tag "all_ativos[]", ativo.id -%></td>
         <td><%= ativo.ativo_description %></td>
         <td><%= ativo.tombo %></td>
         <td><%= ativo.serial %></td>
@@ -50,11 +50,11 @@
 
 
 <script>
-$("#all_ativos__").change(function () {
+$("#all_ativos").change(function () {
     $("input:checkbox").prop('checked', $(this).prop("checked"));
 });
 
-$("#all_ativos__").click(function(){
+$("#all_ativos").click(function(){
     $('input:checkbox').not(this).prop('checked', this.checked);
 });
 

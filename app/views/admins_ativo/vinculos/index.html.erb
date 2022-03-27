@@ -9,7 +9,7 @@
 
 <br>
 
-<table class="table table-hover">
+<table class="table table-hover ">
   <thead>
     <tr>
       <th>Área</th>
@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <% @vinculos.each do |vinculo| %>
-      <tr>
+      <tr data-toggle="collapse" data-target="#lista_ativos<%=vinculo.id%>">
         <td><%= vinculo.area.descricao %></td>
         <td><%= vinculo.subarea.descricao %></td>
         <td><%= vinculo.usuario.nome %></td>
@@ -37,6 +37,16 @@
           <% end %>  
         </td>
       </tr>
+      <% vinculo.addativos.each do |addativo| %>
+        <tr id="lista_ativos<%=vinculo.id%>" class="collapse">
+          <td class="table-light" colspan="6">
+            <%= addativo.ativo.tombo %> -
+            <%= addativo.ativo.ativo_description %> - 
+            <%= addativo.condicao.descricao %> - 
+            <%= addativo.descricao %>
+          </td>  
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

@@ -10,8 +10,8 @@ namespace :dev do
       show_spinner("Criando BD...") { %x(rails db:create) }
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Admin padrão...") { %x(rails dev:add_default_admin) }
-      show_spinner("Ajuste 1 de 3...") { %x(rails dev:add_types) }
-      show_spinner("Ajuste 2 de 3...") { %x(rails dev:add_marcas) }
+      show_spinner("Ajuste 1 de 3...") { %x(rails dev:add_tipo) }
+      show_spinner("Ajuste 2 de 3...") { %x(rails dev:add_marca) }
       show_spinner("Ajuste 3 de 3...") { %x(rails dev:add_condicao) }
     else
       puts "Você não esta em ambiente de desenvolvimento!"
@@ -29,7 +29,7 @@ namespace :dev do
     end
     
     desc "Adicionando Tipos"
-    task add_types: :environment do
+    task add_tipo: :environment do
       file_name = 'types.txt'
       file_path = File.join(DEFAULT_FILE_PATH, file_name)
   
@@ -39,7 +39,7 @@ namespace :dev do
     end
 
     desc "Adicionando Marcas"
-    task add_marcas: :environment do
+    task add_marca: :environment do
       file_name = 'marcas.txt'
       file_path = File.join(DEFAULT_FILE_PATH, file_name)
   

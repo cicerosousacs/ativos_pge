@@ -48,5 +48,10 @@ class AdminsAtivo::AdminsController < AdminsAtivoController
     @admin = Admin.find(params[:id])
   end
 
+  def verify_password
+    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+      params[:admin].extract!(:password, :password_confirmation)
+    end
+  end
 
 end

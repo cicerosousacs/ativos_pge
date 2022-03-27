@@ -7,19 +7,13 @@
   </div>
 </div>
 
-
-
 <br>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" for="flexCheckDefault"">
-          <label class="form-check-label" >
-          </label>
-        </div>
+        <input type="checkbox" id="all_ativos" name="all_ativos">
       </th>
       <th>Descrição</th>
       <th>Tombo</th>
@@ -33,11 +27,7 @@
   <tbody>
     <% @ativos.each do |ativo| %>
       <tr>
-        <td>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          </div>
-        </td>
+        <td><%= check_box_tag "lista_ativos[]", ativo.id -%></td>
         <td><%= ativo.ativo_description %></td>
         <td><%= ativo.tombo %></td>
         <td><%= ativo.serial %></td>
@@ -58,5 +48,24 @@
   </tbody>
 </table>
 
+
+<script>
+$("#all_ativos__").change(function () {
+    $("input:checkbox").prop('checked', $(this).prop("checked"));
+});
+
+$("#all_ativos__").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+
+var all_ativos = $("#all_ativos");
+all_ativos.click(function () {
+  if ( $(this).is(':checked') ){
+    $('input:checkbox').prop("checked", true);
+  }else{
+    $('input:checkbox').prop("checked", false);
+  }
+});
+</script>
 
 <%= paginate @ativos %>

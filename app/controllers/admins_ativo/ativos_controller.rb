@@ -5,6 +5,11 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def index
     @ativos = Ativo.ultimo_ativo(params[:page])
+    @lista_ativos = params[:lista_ativos]
+  end
+
+  def vinculo_deposito
+    lista_ativos = params[:lista_ativos]
   end
 
   def new

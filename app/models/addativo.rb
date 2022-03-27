@@ -5,10 +5,11 @@ class Addativo < ApplicationRecord
 
   #VALIDAÇÔES
   
-  #validates :ativo_id, uniqueness: true, unless: :vinculo_existe?
+  validates :ativo_id, uniqueness: true, unless: :vinculo_existe?
   
   def vinculo_existe?
-    condicao_id == "1"
+    if condicao_id == "1"
+    end
   end
 
 

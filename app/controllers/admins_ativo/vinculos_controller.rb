@@ -15,13 +15,10 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
     @vinculo = Vinculo.new
   end
 
-  def atualiza_subarea
-  end
-
   def create
     @vinculo = Vinculo.new(params_vinculo)
     if @vinculo.save()
-      redirect_to admins_ativo_vinculos_path, notice: "Vinculo criado. Parabéns!"
+      redirect_to admins_ativo_vinculos_path, notice: "Vinculo criado, Parabéns!"
     else
       render :new
     end
@@ -32,7 +29,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
 
   def update
     if @vinculo.update(params_vinculo)
-      redirect_to admins_ativo_vinculos_path, notice: "Vinculo atualizado. Sucesso!"
+      redirect_to admins_ativo_vinculos_path, notice: "Vinculo atualizado, Sucesso!"
     else
       render :edit
     end
@@ -40,7 +37,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
 
   def destroy
     if @vinculo.destroy
-      redirect_to admins_ativo_vinculos_path, notice: "Vinculo excluido. Sucesso!"
+      redirect_to admins_ativo_vinculos_path, notice: "Vinculo excluido, Sucesso!"
     else
       render :index
     end

@@ -4,31 +4,30 @@
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <ul>
       <% @vinculo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= message %>
       <% end %>
     </ul>
   </div>
 <% end %>
 
-<h3>Novo Vinculo</h3>
-<hr>
+
 
 <%= form_with(model: [ :admins_ativo, @vinculo ], local: true ) do |form| %>
 
 <div class="row g-3">
   <div class="control col-md-4">
-    <%= form.label :area %> <br>
+    *<%= form.label :area %> <br>
     <%= form.select("area_id", @area_select, {include_blank: 'Selecione...'}, class:"form-control select2") %>
   </div>
 
   <div class="control col-md-4">
-    <%= form.label :subarea %> <br>
+    *<%= form.label :subarea %> <br>
     <%= form.select("subarea_id", @subarea_select, {include_blank: 'Selecione...'}, class:"form-control subaarea_select") %>
   </div>
 
   <div class="control col-md-4">
-    <%= form.label :usuario %> <br>
-    <%= form.select("usuario_id", @usuario_select, {include_blank: 'Selecione...'}, class:"form-control") %>
+    *<%= form.label :usuario %> <br>
+    <%= form.select("usuario_id", @usuario_select, {include_blank: 'Selecione...'}, class:"form-control select2") %>
   </div>
 
   <div class="control col-md-12">

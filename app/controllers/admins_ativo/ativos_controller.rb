@@ -46,7 +46,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def params_ativo
     params_ativo = params.require(:ativo).permit(:tipo_id, :marca_id, :modelo, :serial, :tombo, 
-                                                  :especificacao, :data_aquisicao, :garantia)
+                                                  :especificacao, :data_aquisicao, :garantia, ativos:[])
   end
 
   def set_ativo
@@ -61,8 +61,8 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     @marca_selects = Marca.all.pluck(:nome, :id)
   end
 
-  def vinculo_deposito
-    all_ativos = params[:all_ativos]
+  def seleciona_ativos
+    
   end
 
 end

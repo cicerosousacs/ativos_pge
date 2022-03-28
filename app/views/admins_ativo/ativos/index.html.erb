@@ -2,7 +2,7 @@
   <div class="col-lg-12">
     <h1>Ativos</h1>
       <%= link_to new_admins_ativo_ativo_path do %>
-        <i class="fa fa-plus btn-sm btn-success" style="color:write"></i>
+        <i class="fa fa-plus btn-sm btn-success" style="color:write" title="Novo Ativo"></i>
       <% end %>   
   </div>
 </div>
@@ -13,57 +13,53 @@
   <thead>
     <tr>
       <th>
-        <input type="checkbox" id="all_ativos" name="all_ativos"></input>
+        <input type="checkbox" id="todos_ativos" name="todos_ativos" title="Selecione todos os Ativos"></input>
       </th>
       <th>Descrição</th>
       <th>Tombo</th>
       <th>Serial</th>
       <th>
-      <!-- <th>Especificação -->
-      <!-- th>Data da Aquisição -->
-      <!-- <th>Garantia -->
     </tr>
   </thead>
   <tbody>
-    <% @ativos.each do |ativo| %>
-      <tr>
-        <td><%= check_box_tag "all_ativos[]", ativo.id -%></td>
-        <td><%= ativo.ativo_description %></td>
-        <td><%= ativo.tombo %></td>
-        <td><%= ativo.serial %></td>
-        <!-- <td><%= ativo.especificacao %></td> -->
-        <!-- <td><%= ativo.data_aquisicao %></td> -->
-        <!-- <td><%= ativo.garantia %></td> -->
-        <td style="width: 10px">
-          <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-        <td style="width: 10px">
-          <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
-            <i class="fa fa-trash" style="color:red"></i>
-          <% end %>  
-        </td>
-      </tr>
-    <% end %>
+
+      <% @ativos.each do |ativo| %>
+        <tr>
+          <td><%= check_box_tag("ativos[]", ativo.id, false, class:'all_ativos') %></td>
+          <td><%= ativo.ativo_description %></td>
+          <td><%= ativo.tombo %></td>
+          <td><%= ativo.serial %></td>
+          <td style="width: 10px">
+            <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+          <td style="width: 10px">
+            <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
+              <i class="fa fa-trash" style="color:red"></i>
+            <% end %>  
+          </td>
+        </tr>
+      <% end %>
+
   </tbody>
 </table>
 
 
 <script>
-$("#all_ativos").change(function () {
-    $("input:checkbox").prop('checked', $(this).prop("checked"));
+$("#todos_ativos").change(function () {
+    $(".all_ativos").prop('checked', $(this).prop("checked"));
 });
 
-$("#all_ativos").click(function(){
-    $('input:checkbox').not(this).prop('checked', this.checked);
+$("#todos_ativos").click(function(){
+    $('.all_ativos').not(this).prop('checked', this.checked);
 });
 
-var all_ativos = $("#all_ativos");
-all_ativos.click(function () {
+var todos_ativos = $("#todos_ativos");
+todos_ativos.click(function () {
   if ( $(this).is(':checked') ){
-    $('input:checkbox').prop("checked", true);
+    $('.all_ativos').prop("checked", true);
   }else{
-    $('input:checkbox').prop("checked", false);
+    $('.all_ativos').prop("checked", false);
   }
 });
 </script>

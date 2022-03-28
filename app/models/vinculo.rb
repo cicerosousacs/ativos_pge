@@ -19,7 +19,8 @@ class Vinculo < ApplicationRecord
   
 
   def vinculo_descricao
-    "#{area.descricao} - #{subarea.descricao} - #{usuario.nome}" 
+    #"#{area.descricao} - #{subarea.descricao} - #{usuario.nome}" 
+    [self.area.descricao, self.subarea.descricao, self.usuario.nome, self.observacao].join(" - ")
   end
 
 end

@@ -7,10 +7,6 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     @ativos = Ativo.ultimo_ativo(params[:page])
   end
 
-  def vinculo_deposito
-    all_ativos = params[:all_ativos]
-  end
-
   def new
     @ativo = Ativo.new
   end
@@ -65,5 +61,8 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     @marca_selects = Marca.all.pluck(:nome, :id)
   end
 
+  def vinculo_deposito
+    all_ativos = params[:all_ativos]
+  end
 
 end

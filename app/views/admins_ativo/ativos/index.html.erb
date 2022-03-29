@@ -4,11 +4,12 @@
     <%= link_to new_admins_ativo_ativo_path do %>
       <button class="btn-sm btn-success" type="button">Novo Ativo</button>
     <% end %>
-    <button type="button" id="btn-vincular" class="btn-sm btn-primary">Vincular ao Déposito</button>         
+    <button type="button" id="btn-vincular" class="btn-sm btn-info">Vincular ao Déposito</button> 
+       
     <div class="text-right">
       <form class="d-sm-inline-block">  
         <%= form_with(url: admins_ativo_search_path, local: true, method: :get) do |form| %>
-          <%= form.text_field :term, class:"form-control", placeholder:"Tombo, Serial ou Descrição"%>
+          <%= form.text_field :term, class:"form-control", placeholder:"Pesquisar"%>
         <% end %>
         <%= button_tag type: 'submit', class: "btn btn-primary" do %>
           <i class="fa fa-search"></i>
@@ -56,7 +57,7 @@
   </tbody>
 </table>
 
-  <%= javascript_include_tag 'admins_ativo'%>
+<%= javascript_include_tag 'application' %>
 
 <script>
     $(document).ready(function () {

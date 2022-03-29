@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   namespace :admins_ativo do
+    resources :aquisicaos
+  end
+  namespace :admins_ativo do
     resources :admins
     resources :tipos
-    get 'search', to: 'search#ativos'
     resources :areas
     resources :subareas
     resources :condicaos
     resources :situacaos
     resources :ativos
+    get 'search', to: 'search#ativos'
     resources :vinculos
     resources :usuarios
     resources :marcas

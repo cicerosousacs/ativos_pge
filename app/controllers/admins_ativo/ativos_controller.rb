@@ -7,6 +7,9 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     @ativos = Ativo.ultimo_ativo(params[:page])
   end
 
+  def vincular_deposito
+  end
+
   def new
     @ativo = Ativo.new
   end
@@ -59,10 +62,6 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def set_marca_selects
     @marca_selects = Marca.all.pluck(:nome, :id)
-  end
-
-  def seleciona_ativos
-    
   end
 
 end

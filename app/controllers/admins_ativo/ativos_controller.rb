@@ -4,7 +4,11 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   before_action :set_marca_selects, only: [:new, :create, :edit, :update]
 
   def index
-    @ativos = Ativo.ultimo_ativo(params[:page])
+    if params[:search]
+      @ativos = Ativo.includes(:tipo, :marca).search(params[:search]).page(params[:page])
+    else
+      @ativos = Ativo.ultimo_ativo(params[:page])
+    end
   end
 
   def vincular_deposito

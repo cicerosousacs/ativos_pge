@@ -29,9 +29,17 @@ class Ativo < ApplicationRecord
   scope :ultimo_ativo, -> (page) {
     includes(:tipo, :marca).order("created_at DESC").page(page)
   }
-  # Pesquisa e paginação - SearchController
-  scope :_search_, -> (page, term) {
-    includes(:tipo, :marca).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)
+
+  # PESQUISA DE ATIVOS
+  scope :search, -> (query) { 
+    text = "%#{query}%"
+    search_columns = %w[modelo tombo serial]
+    where(
+      search_columns
+        .map { |field| "#{field} LIKE :search" }
+        .join(' OR '),
+      search: text
+    )
   }
 
 end

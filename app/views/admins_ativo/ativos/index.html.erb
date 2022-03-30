@@ -1,21 +1,22 @@
 <div class="row ">
   <div class="col-lg-12">
-    <h1>Ativos</h1>
-    <%= link_to new_admins_ativo_ativo_path do %>
-      <button class="btn btn-sm btn-success" type="button">Novo Ativo</button>
-    <% end %>
-    <button type="button" id="btn-vincular" class="btn btn-sm btn-info">Vincular ao Déposito</button> 
-       
+    
     <div class="text-right">
-      <form class="d-sm-inline-block">  
-        <%= form_with(url: admins_ativo_search_path, local: true, method: :get) do |form| %>
-          <%= form.text_field :term, class:"form-control", placeholder:"Pesquisar"%>
-        <% end %>
-        <%= button_tag type: 'submit', class: "btn btn-primary" do %>
-          <i class="fa fa-search"></i>
-        <% end %>
+      <form class="d-sm-inline-block">
+        <div class="input-group">
+          <%= form_tag(admins_ativo_admins_path, method: :post) do %>
+            <%= text_field_tag 'search', nil, class:"form-control bg-light", placeholder:'Tombo, Serial ou Modelo'%>
+          <% end %>
+          <%= button_tag type:'submit', class:"btn btn-primary" do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </div>
       </form>
     </div>
+    <%= link_to new_admins_ativo_ativo_path do %>
+      <button class="btn btn-success" type="button">Novo Ativo</button>
+    <% end %>
+    <button type="button" id="btn-vincular" class="btn btn-info">Vincular ao Déposito</button> 
   </div>
 </div>
 

@@ -52,17 +52,9 @@
                 <i class="nav-link fas fa-fw fa-sitemap">
                   <span style="font-family:Tahoma;">Vinculos</span></i>
                 <% end %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to admins_ativo_ativos_path do %>
-                <i class="nav-link fas fa-fw fa-desktop">
-                  <span style="font-family:Tahoma;">Ativos</span>
-                </i>
-              <% end %>
-            </li>
-            
+            </li>           
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+
             <!-- Nav Item - Pages Collapse Menu -->
             
             <li class="nav-item active">
@@ -124,6 +116,12 @@
                       <% end %>
                       <%= link_to admins_ativo_usuarios_path do %>
                         <i class="collapse-item">Usuários</i>
+                      <% end %>
+                      <%= link_to admins_ativo_aquisicao_modalidades_path do %>
+                        <i class="collapse-item">Modalidade Aquisição</i>
+                      <% end %>
+                      <%= link_to admins_ativo_aquisicao_origems_path do %>
+                        <i class="collapse-item">Origem Aquisição</i>
                       <% end %>
                     </div>
                 </div>

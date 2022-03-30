@@ -1,0 +1,2 @@
+class AquisicaoModalidade < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AquisicaoOrigem < ApplicationRecord
+end

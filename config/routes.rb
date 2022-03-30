@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :admins_ativo do
     resources :admins
     resources :tipos
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
     resources :vinculos
     resources :usuarios
     resources :marcas
+    resources :aquisicao_modalidades
+    resources :aquisicao_origems
   end
 
   namespace :admins_ativo do

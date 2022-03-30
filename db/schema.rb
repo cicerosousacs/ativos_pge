@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_164502) do
+ActiveRecord::Schema.define(version: 2022_03_30_025120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,11 @@ ActiveRecord::Schema.define(version: 2022_03_22_164502) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
-    t.bigint "situacao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "descricao"
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
-    t.index ["situacao_id"], name: "index_addativos_on_situacao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
   end
 
@@ -61,6 +59,18 @@ ActiveRecord::Schema.define(version: 2022_03_22_164502) do
     t.string "nome"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "aquisicao_modalidades", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "aquisicao_origems", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "areas", force: :cascade do |t|

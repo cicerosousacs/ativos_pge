@@ -2,9 +2,9 @@
   <div class="col-lg-12">
     <h1>Ativos</h1>
     <%= link_to new_admins_ativo_ativo_path do %>
-      <button class="btn-sm btn-success" type="button">Novo Ativo</button>
+      <button class="btn btn-sm btn-success" type="button">Novo Ativo</button>
     <% end %>
-    <button type="button" id="btn-vincular" class="btn-sm btn-info">Vincular ao Déposito</button> 
+    <button type="button" id="btn-vincular" class="btn btn-sm btn-info">Vincular ao Déposito</button> 
        
     <div class="text-right">
       <form class="d-sm-inline-block">  
@@ -44,11 +44,11 @@
           <td><%= ativo.serial %></td>
           <td style="width: 10px">
             <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
-              <i class="fa fa-edit"></i>
+              <i class="fas fa-edit"></i>
             <% end %>
           <td style="width: 10px">
             <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
-              <i class="fa fa-trash"></i>
+              <i class="fas fa-trash"></i>
             <% end %>  
           </td>
         </tr>

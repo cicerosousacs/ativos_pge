@@ -17,7 +17,7 @@ class AdminsAtivo::AquisicaoModalidadesController < AdminsAtivoController
       render :new
     end
   end
-
+ 
   def edit
   end
 

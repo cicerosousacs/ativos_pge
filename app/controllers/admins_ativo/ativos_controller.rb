@@ -27,9 +27,6 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     end
   end
 
-  def show
-  end
-
   def edit
   end
 

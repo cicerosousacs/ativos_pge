@@ -22,7 +22,7 @@ class Ativo < ApplicationRecord
 
   #N+1 de Tipos e Marcas ao Adcionar ativos no vinculo
   def self.ativo_descricao
-    Ativo.includes(:tipo, :marca) 
+    Ativo.includes(:tipo, :marca).order("created_at DESC") 
   end
 
   # N+1 e ordaneção por ultimo criado

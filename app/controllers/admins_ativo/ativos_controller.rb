@@ -5,7 +5,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def index
     if params[:search]
-      @ativos = Ativo.includes(:tipo, :marca).search(params[:search]).page(params[:page])
+      @ativos = Ativo.ativo_descricao.search(params[:search]).page(params[:page])
     else
       @ativos = Ativo.ultimo_ativo(params[:page])
     end

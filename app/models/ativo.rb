@@ -1,5 +1,5 @@
 class Ativo < ApplicationRecord
-  belongs_to :tipo
+  belongs_to :tipo, counter_cache: true
   belongs_to :marca
 
   # RELACIONAMENTOS

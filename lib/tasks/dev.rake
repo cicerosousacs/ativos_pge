@@ -6,17 +6,17 @@ namespace :dev do
     desc "Configura o ambiente de desenvolvimento"
     task setup: :environment do
       if Rails.env.development?
-      show_spinner("Apagando BD...") { %x(rails db:drop:_unsafe) }
-      show_spinner("Criando BD...") { %x(rails db:create) }
-      show_spinner("Migrando BD...") { %x(rails db:migrate) }
-      show_spinner("Admin padrão...") { %x(rails dev:add_default_admin) }
-      show_spinner("Ajuste 1 de 3...") { %x(rails dev:add_tipo) }
-      show_spinner("Ajuste 2 de 3...") { %x(rails dev:add_marca) }
-      show_spinner("Ajuste 3 de 3...") { %x(rails dev:add_condicao) }
-    else
-      puts "Você não esta em ambiente de desenvolvimento!"
+        show_spinner("Apagando BD...") { %x(rails db:drop:_unsafe) }
+        show_spinner("Criando BD...") { %x(rails db:create) }
+        show_spinner("Migrando BD...") { %x(rails db:migrate) }
+        show_spinner("Admin padrão...") { %x(rails dev:add_default_admin) }
+        show_spinner("Ajustes 1 de 3...") { %x(rails dev:add_tipo) }
+        show_spinner("Ajustes 2 de 3...") { %x(rails dev:add_marca) }
+        show_spinner("Ajustes 3 de 3...") { %x(rails dev:add_condicao) }
+      else
+        puts "Você não esta em ambiente de desenvolvimento!"
+      end
     end
-  end
     
     desc "Adiciona o administrador padrão"
     task add_default_admin: :environment do
@@ -55,6 +55,15 @@ namespace :dev do
   
       File.open(file_path, 'r').each do |line|
       Condicao.create!(descricao: line.strip)
+      end
+    end
+
+    desc "Contador de Ativos por Tipo"
+    task count_ativos: :environment do
+      show_spinner("Calculando quantidade de Ativos...") do
+        Tipo.find_each do |tipo|
+          Tipo.reset_counters(tipo.id, :ativos)
+        end
       end
     end
 

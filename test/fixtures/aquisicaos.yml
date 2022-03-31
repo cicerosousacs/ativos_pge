@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyString
+  quantidade: MyString
+  valor: 9.99
+  gestor: MyString
+  data_aquisicao: 2022-03-31
+  modalidade: one
+  numero_contrato: MyString
+  origem: one
+  empresa_contratada: MyString
+  parte_interressada: MyString
+
+two:
+  item: MyString
+  quantidade: MyString
+  valor: 9.99
+  gestor: MyString
+  data_aquisicao: 2022-03-31
+  modalidade: two
+  numero_contrato: MyString
+  origem: two
+  empresa_contratada: MyString
+  parte_interressada: MyString

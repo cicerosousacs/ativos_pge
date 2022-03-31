@@ -1,0 +1,1 @@
+rails g model Aquisicao item:string quantidade:string valor:decimal gestor:string data_aquisicao:date modalidade:references numero_contrato:string origem:references empresa_contratada:string parte_interressada:string

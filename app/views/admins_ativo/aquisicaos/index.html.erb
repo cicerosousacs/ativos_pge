@@ -1,2 +1,46 @@
-<h1>AdminsAtivo::Aquisicaos#index</h1>
-<p>Find me in app/views/admins_ativo/aquisicaos/index.html.erb</p>
+<div class="row ">
+  <div class="col-lg-12">
+    <%= link_to new_admins_ativo_aquisicao_path do %>
+      <button class="btn btn-success" style="color:write">Nova Aquisição</button>
+    <% end %>   
+  </div>
+</div>
+
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+      <th>Gestor</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @aquisicaos.each do |aquisicao| %>
+      <tr data-toggle="collapse" data-target="#lista_ativos">
+        <td><%= aquisicao.item %></td>
+        <td><%= aquisicao.quantidade %></td>
+        <td><%= aquisicao.valor %></td>
+        <td><%= aquisicao.gestor %></td>
+        <td style="width: 12px">
+          <%= link_to edit_admins_ativo_aquisicao_path(aquisicao) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+        <td style="width: 12px">
+          <%= link_to admins_ativo_aquisicao_path(aquisicao), method: :delete, data: {confirm: "Certeza?"} do %>
+            <i class="fa fa-trash"></i>
+          <% end %>  
+        </td>
+
+        <tr id="lista_ativos" class="collapse">
+          <td class="table-light" colspan="6">
+
+          </td>  
+        </tr>
+    <% end %>
+  </tbody>
+</table>

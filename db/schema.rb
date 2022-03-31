@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_020849) do
+ActiveRecord::Schema.define(version: 2022_03_31_161837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2022_03_31_020849) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
+    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "descricao"
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
@@ -71,6 +71,23 @@ ActiveRecord::Schema.define(version: 2022_03_31_020849) do
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "aquisicaos", force: :cascade do |t|
+    t.string "item"
+    t.string "quantidade"
+    t.decimal "valor"
+    t.string "gestor"
+    t.date "data_aquisicao"
+    t.bigint "aquisicao_modalidade_id"
+    t.string "numero_contrato"
+    t.bigint "aquisicao_origem_id"
+    t.string "empresa_contratada"
+    t.string "parte_interressada"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aquisicao_modalidade_id"], name: "index_aquisicaos_on_aquisicao_modalidade_id"
+    t.index ["aquisicao_origem_id"], name: "index_aquisicaos_on_aquisicao_origem_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -144,6 +161,8 @@ ActiveRecord::Schema.define(version: 2022_03_31_020849) do
   add_foreign_key "addativos", "ativos"
   add_foreign_key "addativos", "condicaos"
   add_foreign_key "addativos", "vinculos"
+  add_foreign_key "aquisicaos", "aquisicao_modalidades"
+  add_foreign_key "aquisicaos", "aquisicao_origems"
   add_foreign_key "ativos", "marcas"
   add_foreign_key "ativos", "tipos"
   add_foreign_key "subareas", "areas"

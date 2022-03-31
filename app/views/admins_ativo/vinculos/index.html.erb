@@ -29,11 +29,11 @@
         <td><%= vinculo.observacao %></td>
         <td style="width: 12px">
           <%= link_to edit_admins_ativo_vinculo_path(vinculo) do %>
-            <i class="fa fa-edit btn-primary btn-sm"></i>
+            <i class="fa fa-edit"></i>
           <% end %>
         <td style="width: 12px">
           <%= link_to admins_ativo_vinculo_path(vinculo), method: :delete, data: {confirm: "Certeza?"} do %>
-            <i class="fa fa-trash btn-danger btn-sm"></i>
+            <i class="fa fa-trash"></i>
           <% end %>  
         </td>
       </tr>

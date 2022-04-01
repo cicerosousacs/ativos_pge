@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_161837) do
+ActiveRecord::Schema.define(version: 2022_04_01_033429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2022_03_31_161837) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
-    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "descricao"
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
@@ -103,8 +103,6 @@ ActiveRecord::Schema.define(version: 2022_03_31_161837) do
     t.string "serial"
     t.string "tombo"
     t.text "especificacao"
-    t.date "data_aquisicao"
-    t.boolean "garantia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["marca_id"], name: "index_ativos_on_marca_id"

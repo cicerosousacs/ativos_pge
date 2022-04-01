@@ -65,11 +65,11 @@
                 </a>
                 <div id="collapseAtivos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                      <%= link_to admins_ativo_aquisicaos_path do %>
-                        <i class="collapse-item">Aquisição</i>
-                      <% end %>
                       <%= link_to admins_ativo_ativos_path do %>
                         <i class="collapse-item ">Ativos</i>
+                      <% end %>
+                      <%= link_to admins_ativo_aquisicaos_path do %>
+                        <i class="collapse-item">Aquisição</i>
                       <% end %>
                     </div>
                 </div>
@@ -126,16 +126,11 @@
                     </div>
                 </div>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-
-
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -150,6 +145,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                <!-- Topbar -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+                    </form>
+                <!-- Topbar -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 

@@ -28,7 +28,7 @@
         <div class="mb-2">
           <code>
           <% @tipos.each do |tipo|%>
-            <li style="list-style:none;"><%= "#{tipo.descricao} (#{tipo.ativos_count})" %></li>
+            <li style="list-style:none;"><%= "#{tipo.descricao} - #{tipo.ativos_count}" %></li>
           <% end %>
           </code>
         </div>
@@ -49,5 +49,3 @@
     <% end %>
   </div>
 </div>
-
-

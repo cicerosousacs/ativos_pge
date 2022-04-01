@@ -1,4 +1,3 @@
-
 <% if @ativo.errors.any? %>
     <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -10,54 +9,56 @@
     </div>
 <% end %>
 
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary"></h6>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: [ :admins_ativo, @ativo ], local: true ) do |form| %>
+      <div class="row g-3">
+        <div class="form-group col-md-3">
+          <code>*</code>
+          <%= form.label :tipo %>
+            <%= link_to new_admins_ativo_tipo_path do %>
+              <i class="fa fa-plus" style="color:green"></i>
+            <% end %>
+          <%= form.select("tipo_id", @tipo_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
+        </div>
+        <div class="form-group col-md-3">
+          <code>*</code>
+          <%= form.label :marca %>
+            <%= link_to new_admins_ativo_marca_path do %>
+              <i class="fa fa-plus" style="color:green"></i>
+            <% end %>
+          <%= form.select("marca_id", @marca_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
+        </div>
+        <div class="form-group col-md-6">
+          <code>*</code>
+          <%= form.label :modelo %> <br>
+          <%= form.text_field :modelo, class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+          <code>*</code>
+          <%= form.label :serial %> <br>
+          <%= form.text_field :serial, class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+          <code>*</code>
+          <%= form.label :tombo %> <br>
+          <%= form.text_field :tombo, class:"form-control" %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= form.label :especificação %> <br>
+          <%= form.text_area :especificacao, class:"form-control" %>
+        </div>
+      </div>
 
-<%= form_with(model: [ :admins_ativo, @ativo ], local: true ) do |form| %>
-<div class="row g-3">
-  <div class="form-group col-md-3">
-    * <%= form.label :tipo %>
-        <%= link_to new_admins_ativo_tipo_path do %>
-          <i class="fa fa-plus" style="color:green"></i>
-        <% end %>
-    <%= form.select("tipo_id", @tipo_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
-  </div>
-  <div class="form-group col-md-3">
-    * <%= form.label :marca %>
-        <%= link_to new_admins_ativo_marca_path do %>
-          <i class="fa fa-plus" style="color:green"></i>
-        <% end %>
-    <%= form.select("marca_id", @marca_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
-  </div>
-  <div class="form-group col-md-6">
-    * <%= form.label :modelo %> <br>
-    <%= form.text_field :modelo, class:"form-control" %>
-  </div>
-  <div class="form-group col-md-3">
-    * <%= form.label :serial %> <br>
-    <%= form.text_field :serial, class:"form-control" %>
-  </div>
-  <div class="form-group col-md-3">
-    * <%= form.label :tombo %> <br>
-    <%= form.text_field :tombo, class:"form-control" %>
-  </div>
-  <div class="form-group col-md-6">
-    <%= form.label :especificação %> <br>
-    <%= form.text_area :especificacao, class:"form-control" %>
-  </div>
-  <div class="form-group col-md-2">
-    <%= form.label :data_aquisicao %> <br>
-    <%= form.date_field :data_aquisicao, class:"form-control" %>
-  </div>
-  <div class="form-group col-md-2">
-    <%= form.label :garantia %> <br>
-    <%= form.check_box :garantia %>
+      <hr/>
+      <code>* Campos obrigatorios</code>
+      <div class="text-right">
+        <%= form.submit "Salvar", class:"btn btn-primary" %>
+      </div>
+
+    <% end %>
   </div>
 </div>
-
-  <hr/>
-* Campos obrigatorios
-  <div class="text-right">
-    <%= form.submit "Salvar", class:"btn btn-primary" %>
-  </div>
-
-<% end %>
-

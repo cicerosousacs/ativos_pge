@@ -1886,12 +1886,12 @@ pre code {
 }
 
 .form-control::placeholder {
-  color: #858796;
+  color: #858383;
   opacity: 1;
 }
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #eaecf4;
+  background-color: #ffffff;
   opacity: 1;
 }
 
@@ -3369,7 +3369,7 @@ input[type="button"].btn-block {
   position: relative;
   flex: 1 1 auto;
   width: 1%;
-  min-width: 0;
+  min-width: ;
   margin-bottom: 0;
 }
 

@@ -1,59 +1,63 @@
-<div class="row ">
-  <div class="col-lg-12">
-    <div class="text-right">
-      <form class="d-sm-inline-block">
-        <div class="input-group">
-          <%= form_tag(admins_ativo_admins_path, method: :post) do %>
-            <%= text_field_tag 'search', nil, class:"form-control bg-light", placeholder:'Tombo, Serial ou Modelo'%>
-          <% end %>
-          <%= button_tag type:'submit', class:"btn btn-primary" do %>
-            <i class="fa fa-search"></i>
-          <% end %>
-        </div>
-      </form>
-    </div>
+
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
     <%= link_to new_admins_ativo_ativo_path do %>
       <button class="btn btn-success" type="button">Novo Ativo</button>
     <% end %>
-    <button type="button" id="btn-vincular" class="btn btn-info">Vincular ao Déposito</button> 
+    <button type="button" id="btn-vincular" class="btn btn-info">Vincular ao Déposito</button>
+    <form class="d-none d-sm-inline-block form-inliness mr-auto ml-md-3 my-2 my-md-0 mw-100">
+      <div class="input-group">
+        <%= form_tag(admins_ativo_admins_path, method: :post) do %>
+          <%= text_field_tag 'search', nil, class:"form-control border-1 small", placeholder:'Tombo, Serial ou Modelo'%>
+        <% end %>
+        <div class="input-group-append">
+          <%= button_tag type:'submit', class:"btn btn-primary" do %>
+            <i class="fas fa-search fa-sm"></i>
+          <% end %>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 10px">
+            <input type="checkbox" id="all_ativos" title="Marcar todos os Ativos"></input>
+          </th>
+          <th>Descrição</th>
+          <th>Tombo</th>
+          <th>Serial</th>
+          <th>
+          <th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ativos.each do |ativo| %>
+          <tr>
+            <td><%= check_box_tag("ativos[]", ativo.id, false, class:'marcar') %></td>
+            <td><%= ativo.ativo_description %></td>
+            <td><%= ativo.tombo %></td>
+            <td><%= ativo.serial %></td>
+            <td style="width: 10px">
+              <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            <td style="width: 10px">
+              <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
+                <i class="fas fa-trash"></i>
+              <% end %>  
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<br>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>
-        <input type="checkbox" id="all_ativos" title="Marcar todos os Ativos"></input>
-      </th>
-      <th>Descrição</th>
-      <th>Tombo</th>
-      <th>Serial</th>
-      <th>
-      <th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @ativos.each do |ativo| %>
-      <tr>
-        <td><%= check_box_tag("ativos[]", ativo.id, false, class:'marcar') %></td>
-        <td><%= ativo.ativo_description %></td>
-        <td><%= ativo.tombo %></td>
-        <td><%= ativo.serial %></td>
-        <td style="width: 10px">
-          <%= link_to edit_admins_ativo_ativo_path(ativo) do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-        <td style="width: 10px">
-          <%= link_to admins_ativo_ativo_path(ativo), method: :delete, data: {confirm: "Certeza?"} do %>
-            <i class="fas fa-trash"></i>
-          <% end %>  
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
 
 <%= javascript_include_tag 'application' %>
 

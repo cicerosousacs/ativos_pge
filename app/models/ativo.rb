@@ -1,4 +1,5 @@
 class Ativo < ApplicationRecord
+  # CONTAGEM DE ATIVOS POR TIPO
   belongs_to :tipo, counter_cache: true
   belongs_to :marca
 

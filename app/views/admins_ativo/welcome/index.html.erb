@@ -1,19 +1,14 @@
 <div class="row">
   <div class="col-lg-6">
-    <!-- Circle Buttons -->
     <div class="card shadow mb-4">
-      <div class="card-header py-3">
+      <a href="#aquisicao" class="d-block card-header py-3" data-toggle="collapse"
+        role="button" aria-expanded="true" aria-controls="aquisicao">
         <h6 class="m-0 font-weight-bold text-primary">Aquisições</h6>
-      </div>
-      <div class="card-body">
-        <div class="mb-2">
-          <code>.btn-circle</code>
-        </div>
-        <div class="mt-4 mb-2">
-          <code>.btn-circle .btn-sm</code>
-        </div>
-        <div class="mt-4 mb-2">
-          <code>.btn-circle .btn-lg</code>
+      </a>
+      <!-- Card Content - Collapse -->
+      <div class="collapse show" id="aquisicao">
+        <div class="card-body">
+          Aqui
         </div>
       </div>
     </div>
@@ -21,31 +16,41 @@
 
   <div class="col-lg-6">
     <div class="card shadow mb-4">
-      <div class="card-header py-3">
+      <a href="#ativos" class="d-block card-header py-3" data-toggle="collapse"
+        role="button" aria-expanded="true" aria-controls="ativos">
         <h6 class="m-0 font-weight-bold text-primary">Ativos</h6>
-      </div>
-      <div class="card-body">
-        <div class="mb-2">
+      </a>
+      <!-- Card Content - Collapse -->
+      <div class="collapse show" id="ativos">
+        <div class="card-body">
           <code>
-          <% @tipos.each do |tipo|%>
-            <li style="list-style:none;"><%= "#{tipo.descricao} - #{tipo.ativos_count}" %></li>
-          <% end %>
+            <% @tipos.each do |tipo|%>
+              <li style="list-style:none;">
+                <%= "#{tipo.descricao} - #{tipo.ativos_count}" %>
+              </li>
+            <% end %>
           </code>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Brand Buttons -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Vinculos recentes</h6>
-  </div>
-  <div class="card-body">
-    <% @vinculos.each do |vinculo| %>
-      <div class="mb-2">
-        <code><%= vinculo.vinculo_descricao %></code>
+  
+<div class="col-lg">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Accordion -->
+    <a href="#vinculos" class="d-block card-header py-3" data-toggle="collapse"
+      role="button" aria-expanded="true" aria-controls="vinculos">
+      <h6 class="m-0 font-weight-bold text-primary">Vinculos recentes</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse show" id="vinculos">
+      <div class="card-body">
+        <% @vinculos.each do |vinculo| %>
+          <div class="mb-2">
+            <code><%= vinculo.vinculo_descricao %></code>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

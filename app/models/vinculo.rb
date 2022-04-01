@@ -9,7 +9,7 @@ class Vinculo < ApplicationRecord
 
   # VALIDAÇÔES
   #validates :addativos, presence: true
-  validates :addativos, :presence => { :message => "É necessario incluir ao menos um Ativo!"}
+  validates :addativos, presence: { message: "É necessario incluir ao menos um Ativo!"}
   
   validates :usuario_id, uniqueness: true, unless: -> { usuario.suporte == true }
   # Outra forma de fazer a validação 

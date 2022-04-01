@@ -4,7 +4,7 @@ class AdminsAtivo::AquisicaosController < AdminsAtivoController
   before_action :set_origem_selects, only: [:new, :create, :edit, :update]
 
   def index
-    @aquisicaos = Aquisicao.all
+    @aquisicaos = Aquisicao.includes(:aquisicao_modalidade, :aquisicao_origem)
   end
 
   def new
@@ -13,7 +13,7 @@ class AdminsAtivo::AquisicaosController < AdminsAtivoController
 
   def create
     @aquisicao = Aquisicao.new(params_aquisicao)
-    if aquisicao.save()
+    if @aquisicao.save()
       redirect_to admins_ativo_aquisicaos_path, notice: "Aquisição cadastrado. Parabéns!"
     else
       render :new
@@ -42,9 +42,10 @@ class AdminsAtivo::AquisicaosController < AdminsAtivoController
   private
 
   def params_aquisicao
-    params_aquisicao = params.require(:aquisicao).permit(:item, :quantidade, :valor, :gestor, :data_aquisicao,
-                                                          :aquisicao_modalidade, :numero_contrato, :aquisicao_origem, 
-                                                          :empresa_contratada, :parte_interressada)
+    params_aquisicao = params.require(:aquisicao)
+    .permit(:item, :quantidade, :valor, :gestor, :data_aquisicao,
+            :aquisicao_modalidade_id, :numero_contrato, :aquisicao_origem_id, 
+            :empresa_contratada, :parte_interressada)
   end
 
   def set_aquisicao

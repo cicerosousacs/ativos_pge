@@ -12,11 +12,11 @@ class Aquisicao < ApplicationRecord
   def check_pdf
     if anexo_aditivo.attached? && !anexo_aditivo.content_type.in?(%w(application/pdf))
       anexo_aditivo.purge
-      errors.add(:anexo_aditivo, 'Para Aditivo apenas arquivos PDF são permitidos.')
+      errors.add(:anexo_aditivo, 'Apenas arquivos PDF são permitidos.')
     else
       anexo_contrato.attached? && !anexo_contrato.content_type.in?(%w(application/pdf))
       anexo_contrato.purge
-      errors.add(:anexo_contrato, 'Para Contrato apenas arquivos PDF são permitidos.')
+      errors.add(:anexo_contrato, 'Apenas arquivos PDF são permitidos.')
     end
   end
 

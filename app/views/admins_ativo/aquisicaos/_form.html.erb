@@ -17,24 +17,24 @@
     <%= form_with(model: [ :admins_ativo, @aquisicao ], local: true ) do |form| %>
       <div class="row g-3">
         <div class="form-group col-md-8">
-          <%= form.label :item %> <br>
+          <%= form.label :item, "Item" %> <br>
           <%= form.text_field :item, class:"form-control" %>
         </div>
         <div class="form-group col-md-2">
-          <%= form.label :quantidade %> <br>
+          <%= form.label :quantidade, "Quantidade" %> <br>
           <%= form.text_field :quantidade, class:"form-control" %>
         </div>
         <div class="form-group col-md-2">
-          <%= form.label :valor %> <br>
-          <%= form.text_field :valor, class:"form-control" %>
+          <%= form.label :valor, "Valor Aquisição" %> <br>
+          <%= form.text_field :valor, class:"form-control mask_real", :value => formatar_valor_monetario(@aquisicao.valor) %>
         </div>
         <div class="form-group col-md-6">
-          <%= form.label :gestor %> <br>
+          <%= form.label :gestor, "Gestor do Contrato" %> <br>
           <%= form.text_field :gestor, class:"form-control" %>
         </div>
         <div class="form-group col-md-3">
           <code>*</code>
-          <%= form.label :aquisicao_modalidade %>
+          <%= form.label :aquisicao_modalidade, "Modalidade da Aquisição" %>
             <%= link_to new_admins_ativo_aquisicao_modalidade_path do %>
               <i class="fa fa-plus" style="color:green"></i>
             <% end %>
@@ -42,7 +42,7 @@
         </div>
         <div class="form-group col-md-3">
           <code>*</code>
-          <%= form.label :aquisicao_origem %>
+          <%= form.label :aquisicao_origem, "Origem da Aquisição" %>
             <%= link_to new_admins_ativo_aquisicao_origem_path do %>
               <i class="fa fa-plus" style="color:green"></i>
             <% end %>
@@ -65,15 +65,15 @@
           <%= form.text_field :empresa_contratada, class:"form-control" %>
         </div>
         <div class="form-group col-md-6">
-          <%= form.label :observacao %> <br>
+          <%= form.label :observacao, "Observações" %> <br>
           <%= form.text_field :empresa_contratada, class:"form-control" %>
         </div>
         <div class="form-group col-md-6">
-          <%= form.label :anexar_contrato %>
+          <%= form.label :anexar_contrato, "Anexar Contrato" %>
           <%= form.file_field :anexo_contrato, class:"form-control-file", id:"file_contrato"%>
         </div>
         <div class="form-group col-md-6">
-          <%= form.label :anexar_aditivo %>
+          <%= form.label :anexar_aditivo, "Anexar Aditivo" %>
           <%= form.file_field :anexo_aditivo, class:"form-control-file", id:"file_aditivo" %>
         </div>
       </div>
@@ -85,3 +85,5 @@
     <% end %>
   </div>
 </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script> 

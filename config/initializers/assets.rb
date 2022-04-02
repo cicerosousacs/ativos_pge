@@ -19,7 +19,9 @@ Rails.application.config.assets.precompile += %w( admins_ativo.js admins_ativo.c
 
 #/lib/assets
 Rails.application.config.assets.precompile += %w( sb-admin-2.min.js sb-admin-2.min.css
-                                                  scripts.js styles.css )
+                                                  scripts.js styles.css 
+                                                  jquery.min.js
+                                                  jquery.maskMoney.min.js )
 
 #vendor/assets
-Rails.application.config.assets.precompile += %w( bootstrap/js/bootstrap.bundle.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap/js/bootstrap.bundle.min.js jQuery-Mask-Plugin-master/dist/jquery.mask.min.js )

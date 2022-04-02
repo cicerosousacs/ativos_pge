@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Ativos PGE - Service Desk</title>
+  <title>Ativos PGE - Service Desk</title>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application'%>
-    <%= stylesheet_link_tag    'admins_ativo'%>
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag 'admins_ativo' %>
 
 
 </head>
@@ -139,7 +139,6 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -147,16 +146,14 @@
 
                 <!-- Topbar -->
                     <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            
-                            <div class="input-group-append">
+                      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                      <div class="input-group">
+                        <div class="input-group-append">
 
-                            </div>
                         </div>
+                      </div>
                     </form>
-                <!-- Topbar -->
-                    <!-- Topbar Navbar -->
+                
                     <ul class="navbar-nav ml-auto">
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -185,7 +182,6 @@
                             </div>
                         </li>
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -195,7 +191,7 @@
                         <%= yield %>
                         
                 </div>
-                <!-- /.container-fluid -->
+
 
             </div>
             <!-- End of Main Content -->
@@ -229,38 +225,49 @@
     </div>
   </div>
 
-    <%= javascript_include_tag 'application'%>
-    <%= javascript_include_tag 'admins_ativo'%>
-    
+  <%= javascript_include_tag 'application'%>
+  <%= javascript_include_tag 'admins_ativo'%>
+  
 
-    <% if notice %>
-      <%= javascript_tag do %>
-        $.bootstrapGrowl('<%= notice %>', {
-        type: 'success', 
-        align: 'right',
-        width: 350,
-        delay: 3000, 
-        allow_dismiss: true, 
-        stackup_spacing: 10 
-        });
-      <% end %>
-    <% end %>
-
-  <!-- Select2 -->
+  <% if notice %>
     <%= javascript_tag do %>
-      $(document).ready(function(){
-        $('.select2').select2({
-          theme: 'bootstrap4',
-        });
-
-       $.ajax({
-
-        type:"get"
-        });
-
+      $.bootstrapGrowl('<%= notice %>', {
+      type: 'success', 
+      align: 'right',
+      width: 350,
+      delay: 3000, 
+      allow_dismiss: true, 
+      stackup_spacing: 10 
       });
     <% end %>
+  <% end %>
 
-</body>
+
+  <script>
+
+    jQuery(document).ready(function ($) {
+      $('.masc-data').mask('00/00/0000');
+      $('.masc-cep').mask('00000-000');
+      $('.masc-telefone').mask('(00) 0000-0000');
+      $('.masc-celular').mask('(00) 0 0000-0000');
+      $('.masc-contrato').mask('00/0000');
+      $('.masc-cpf').mask('000.000.000-00', { reverse: true });
+      $('.masc-cnpj').mask('00.000.000/0000-00', { reverse: true });
+      $('.masc-dinheiro').mask('000.000.000.000.000,00', { reverse: true });
+    });
+
+    $(function(){
+      $('.mask_real').maskMoney({
+        prefix:'R$ ',
+        allowNegative: true,
+        thousands:'.', decimal:',',
+        affixesStay: true});
+    })
+
+  </script>
+
+
+
+  </body>
 
 </html>

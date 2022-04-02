@@ -25,6 +25,7 @@ gem 'kaminari-i18n' #tradução da paginação
 gem 'cocoon' #formularios aninhados
 gem 'select2-rails', '~> 4.0', '>= 4.0.3' #pesquisar dentro do select
 gem 'jquery-rails'
+gem 'money'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

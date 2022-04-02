@@ -12,6 +12,7 @@
     "fontawesome-free": "^1.0.4",
     "jquery": "^3.6.0",
     "jquery-easing": "^0.0.1",
+    "jquery-mask-plugin": "^1.14.16",
     "jquery.easing": "^1.4.1"
   }
 }

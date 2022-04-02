@@ -6,9 +6,10 @@
 //= require jquery/jquery
 //= require bootstrap/js/bootstrap.bundle.min
 //= require jquery-easing/jquery.easing.min
-//= require sb-admin-2
+//= require sb-admin-2.js
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require cocoon
-//= require select2
+//= require jquery.maskMoney.min.js
+//= require jQuery-Mask-Plugin-master/dist/jquery.mask.min.js
 
 

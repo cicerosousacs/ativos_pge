@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_033429) do
+ActiveRecord::Schema.define(version: 2022_04_02_201400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2022_04_01_033429) do
     t.bigint "vinculo_id"
     t.bigint "ativo_id"
     t.bigint "condicao_id"
-    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "descricao"
     t.index ["ativo_id"], name: "index_addativos_on_ativo_id"
     t.index ["condicao_id"], name: "index_addativos_on_condicao_id"
     t.index ["vinculo_id"], name: "index_addativos_on_vinculo_id"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 2022_04_01_033429) do
   create_table "aquisicaos", force: :cascade do |t|
     t.string "item"
     t.string "quantidade"
-    t.decimal "valor"
     t.string "gestor"
     t.date "data_aquisicao"
     t.bigint "aquisicao_modalidade_id"
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_033429) do
     t.string "parte_interressada"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "valor"
     t.index ["aquisicao_modalidade_id"], name: "index_aquisicaos_on_aquisicao_modalidade_id"
     t.index ["aquisicao_origem_id"], name: "index_aquisicaos_on_aquisicao_origem_id"
   end

@@ -13,16 +13,20 @@ class Vinculo < ApplicationRecord
   
   validates :usuario_id, uniqueness: true, unless: -> { usuario.suporte == true }
   # Outra forma de fazer a validação 
-  #validates :usuario_id, uniqueness: true,
-  #  unless: Proc.new { |u| u.usuario.suporte == true }
+  # validates :usuario_id, uniqueness: true,
+  # unless: Proc.new { |u| u.usuario.suporte == true }
+  validate :check_vinculo
 
   def vinculo_descricao
     #"#{area.descricao} - #{subarea.descricao} - #{usuario.nome}" 
     [self.area.descricao, self.subarea.descricao, self.usuario.nome, self.observacao].join(" - ")
   end
 
+  private
+
   def check_vinculo
     
+    puts "coisa"
   end
 
 end

@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resources :subareas
     resources :condicaos
     resources :situacaos
-    resources :ativos
+    resources :ativos do
+      collection do
+        match :vincular_deposito, via: %i[get post]
+        get :vincular_deposito
+      end
+    end
     resources :aquisicaos
     resources :vinculos
     resources :usuarios

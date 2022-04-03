@@ -3,6 +3,8 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   before_action :set_tipo_selects, only: [:new, :create, :edit, :update]
   before_action :set_marca_selects, only: [:new, :create, :edit, :update]
   before_action :set_aquisicao_selects, only: [:new, :create, :edit, :update]
+  #skip_before_action :verify_authenticity_token # desabilita a proteção CSRF para todo o controller
+  protect_from_forgery except: :vincular_deposito # desativa a proteção CSRF apenas para esse metodo
 
   def index
     if params[:search]
@@ -13,6 +15,8 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   end
 
   def vincular_deposito
+    puts "estou aqui"
+    #params[:ativos_ids]
   end
 
   def new

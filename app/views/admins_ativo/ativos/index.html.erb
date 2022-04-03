@@ -35,7 +35,7 @@
       <tbody>
         <% @ativos.each do |ativo| %>
           <tr>
-            <td><%= check_box_tag("ativos[]", ativo.id, false, class:'marcar') %></td>
+            <td><%= check_box_tag("ativos_ids[]", ativo.id, false, class:'marcar') %></td>
             <td><%= ativo.ativo_description %></td>
             <td><%= ativo.tombo %></td>
             <td><%= ativo.serial %></td>
@@ -58,37 +58,37 @@
 <%= javascript_include_tag 'application' %>
 
 <script>
-    $(document).ready(function () {
-      $('#btn-vincular').click(function () {
-        var ativos_ids = $('.marcar:checked').map(function () {
-            return $(this).val();
-        }).get();
-        if (ativos_ids == '') {
-            alert('Selecione pelo menos um Ativo');
-        } else {
-            if (this.id == 'btn-vincular') {
-                
-            }
-        }
-      });
-
-      $("#all_ativos").change(function () {
-          $('.marcar').prop('checked', $(this).prop("checked"));
-      });
-
-      $("#all_ativos").click(function(){
-          $('.marcar').not(this).prop('checked', this.checked);
-      });
-
-      var all_ativos = $("#all_ativos");
-      all_ativos.click(function () {
-        if ( $(this).is(':checked') ){
-          $('.marcar').prop("checked", true);
-        }else{
-          $('.marcar').prop("checked", false);
-        }
-      });
+  $(document).ready(function () {
+    $('#btn-vincular').click(function () {
+      var ativos_ids = $('.marcar:checked').map(function () {
+          return $(this).val();
+      }).get();
+      if (ativos_ids == '') {
+          alert('Selecione pelo menos um Ativo');
+      } else {
+          if (this.id == 'btn-vincular') {
+              $.post('<%= url_for({ :controller => 'ativos', :action => 'vincular_deposito' })%>?ativos_ids=' + ativos_ids)
+          }
+      }
     });
+
+    $("#all_ativos").change(function () {
+        $('.marcar').prop('checked', $(this).prop("checked"));
+    });
+
+    $("#all_ativos").click(function(){
+        $('.marcar').not(this).prop('checked', this.checked);
+    });
+
+    var all_ativos = $("#all_ativos");
+    all_ativos.click(function () {
+      if ( $(this).is(':checked') ){
+        $('.marcar').prop("checked", true);
+      }else{
+        $('.marcar').prop("checked", false);
+      }
+    });
+  });
 </script>
 
 <%= paginate @ativos %>

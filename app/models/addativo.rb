@@ -5,5 +5,6 @@ class Addativo < ApplicationRecord
 
   #VALIDAÇÔES
   
-  validates :ativo_id, uniqueness: true, unless: -> { condicao_id == "1" }
+  #validates :ativo_id, uniqueness: true, unless: -> { ativo.ativo_id == "1" }
+
 end

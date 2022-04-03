@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_02_201400) do
+ActiveRecord::Schema.define(version: 2022_04_02_235758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2022_04_02_201400) do
     t.text "especificacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "aquisicao_id"
+    t.index ["aquisicao_id"], name: "index_ativos_on_aquisicao_id"
     t.index ["marca_id"], name: "index_ativos_on_marca_id"
     t.index ["tipo_id"], name: "index_ativos_on_tipo_id"
   end
@@ -161,6 +163,7 @@ ActiveRecord::Schema.define(version: 2022_04_02_201400) do
   add_foreign_key "addativos", "vinculos"
   add_foreign_key "aquisicaos", "aquisicao_modalidades"
   add_foreign_key "aquisicaos", "aquisicao_origems"
+  add_foreign_key "ativos", "aquisicaos"
   add_foreign_key "ativos", "marcas"
   add_foreign_key "ativos", "tipos"
   add_foreign_key "subareas", "areas"

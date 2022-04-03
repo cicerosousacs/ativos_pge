@@ -37,15 +37,20 @@
           <%= form.label :modelo %> <br>
           <%= form.text_field :modelo, class:"form-control" %>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
           <code>*</code>
           <%= form.label :serial %> <br>
           <%= form.text_field :serial, class:"form-control" %>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
           <code>*</code>
           <%= form.label :tombo %> <br>
           <%= form.text_field :tombo, class:"form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <code>*</code>
+          <%= form.label :numero_processo, "Nº Processo" %>
+          <%= form.select("aquisicao_id", @aquisicao_selects, {include_blank: 'Selecione...'}, class:"form-control") %>
         </div>
         <div class="form-group col-md-6">
           <%= form.label :especificação %> <br>

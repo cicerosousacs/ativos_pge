@@ -2,6 +2,7 @@ class Ativo < ApplicationRecord
   # CONTAGEM DE ATIVOS POR TIPO
   belongs_to :tipo, counter_cache: true
   belongs_to :marca
+  belongs_to :aquisicao
 
   # RELACIONAMENTOS
   has_one :condicao, through: :vinculo
@@ -28,7 +29,7 @@ class Ativo < ApplicationRecord
 
   # N+1 e ordaneção por ultimo criado
   scope :ultimo_ativo, -> (page) {
-    includes(:tipo, :marca).order("created_at DESC").page(page)
+    includes(:tipo, :marca, :aquisicao).order("created_at DESC").page(page)
   }
 
   # PESQUISA DE ATIVOS

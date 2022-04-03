@@ -42,10 +42,9 @@ class AdminsAtivo::AquisicaosController < AdminsAtivoController
   private
 
   def params_aquisicao
-    params_aquisicao = params.require(:aquisicao)
-    .permit(:item, :quantidade, :valor, :gestor, :data_aquisicao,
-            :aquisicao_modalidade_id, :numero_contrato, :aquisicao_origem_id, 
-            :empresa_contratada, :parte_interressada, :anexo_contrato, :anexo_aditivo)
+    params.require(:aquisicao).permit(:item, :quantidade, :valor, :gestor, :data_aquisicao,
+                                      :aquisicao_modalidade_id, :numero_contrato, :aquisicao_origem_id, 
+                                      :empresa_contratada, :parte_interressada, :anexo_contrato, :anexo_aditivo)
   end
 
   def set_aquisicao

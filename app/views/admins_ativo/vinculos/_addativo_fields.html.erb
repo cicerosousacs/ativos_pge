@@ -1,15 +1,15 @@
 <div class="control-group nested-fields">
   <div class="row g-3">
     <div class="control col-md-2">
-      <%= f.select("ativo_id", @ativo_select, {include_blank: 'Selecione...'}, class:"form-control tombosearch")%>
+      <%= f.select("ativo_id", @ativo_select, {include_blank: 'Tombo'}, class:"form-control tombosearch")%>
     </div>
 
     <div class="control col-md-4">
-      <%= f.collection_select :ativo_id, Ativo.ativo_descricao, :id, :ativo_description, {include_blank: 'Selecione...'}, class:"form-control" %>
+      <%= f.collection_select :ativo_id, Ativo.ativo_descricao, :id, :ativo_description, {include_blank: 'Descrição'}, class:"form-control" %>
     </div>
 
     <div class="control col-md-2">
-      <%= f.select("condicao_id", @condicao_select, {include_blank: 'Selecione...'}, class:"form-control")%>
+      <%= f.select("condicao_id", @condicao_select, {include_blank: 'Status'}, class:"form-control")%>
     </div>
 
     <div class="control col-md-3">
@@ -25,11 +25,6 @@
 </div>
 <br>
 
-
 <%= javascript_tag do %>
-  $(document).ready(function(){
-    $('.tombosearch').select2({
-      theme: 'bootstrap4',
-    });
-  });
+
 <% end %>

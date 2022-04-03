@@ -11,6 +11,8 @@ class Aquisicao < ApplicationRecord
 
   require 'money'
 
+
+
   private
 
   def check_pdf_aditivo

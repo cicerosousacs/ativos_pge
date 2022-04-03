@@ -16,11 +16,13 @@ class Vinculo < ApplicationRecord
   #validates :usuario_id, uniqueness: true,
   #  unless: Proc.new { |u| u.usuario.suporte == true }
 
-  
-
   def vinculo_descricao
     #"#{area.descricao} - #{subarea.descricao} - #{usuario.nome}" 
     [self.area.descricao, self.subarea.descricao, self.usuario.nome, self.observacao].join(" - ")
+  end
+
+  def check_vinculo
+    
   end
 
 end

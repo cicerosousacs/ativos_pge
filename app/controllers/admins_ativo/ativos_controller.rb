@@ -15,7 +15,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   end
 
   def vincular_deposito
-    puts "estou aqui"
+    puts "cheguei aqui"
     #params[:ativos_ids]
   end
 

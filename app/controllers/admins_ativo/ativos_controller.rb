@@ -15,9 +15,18 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   end
 
   def vincular_deposito
-    puts "cheguei aqui"
-    #params[:ativos_ids].each do |ativo|
-    #end
+    Vinculo.find_or_create_by!(
+      area_id: "1",
+      subarea_id: "1",
+      usuario_id: "6",
+      observacao: "Relação de Ativos Disponíveis"
+    )
+    todos_ativos = params[:ativos_ids]
+
+      #todos_ativos.each do |ativo|
+      #  Addativo.find_or_create_by(params[:ativos_ids])
+      #end
+
   end
 
   def new

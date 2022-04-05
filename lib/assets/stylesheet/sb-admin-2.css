@@ -166,7 +166,7 @@ a {
 
 a:hover {
   color: #224abe;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([class]) {
@@ -505,8 +505,8 @@ mark,
 }
 
 code {
-  font-size: 87.5%;
-  color: #e83e8c;
+  font-size: 90.5%;
+  color: #f80c0c;
   word-wrap: break-word;
 }
 

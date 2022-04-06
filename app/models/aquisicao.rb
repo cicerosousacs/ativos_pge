@@ -7,13 +7,14 @@ class Aquisicao < ApplicationRecord
   has_one_attached :anexo_contrato
   has_one_attached :anexo_aditivo
 
-  validate :check_pdf_aditivo, :check_pdf_contrato
-
+  validates :anexo_contrato, attached: true, content_type: 'application/pdf'
+  validates :anexo_aditivo, content_type: 'application/pdf'
+  
   require 'money'
 
-
-
   private
+
+  #validate :check_pdf_aditivo, :check_pdf_contrato
 
   def check_pdf_aditivo
     if anexo_aditivo.attached? && !anexo_aditivo.content_type.in?(%w(application/pdf))

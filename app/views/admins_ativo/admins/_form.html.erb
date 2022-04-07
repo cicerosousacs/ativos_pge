@@ -15,23 +15,28 @@
 
 <div class="row g-3">
   <div class="control col-md-5">
-    <%= form.label :nome %> <br>
+    <%= form.label :nome %>
     <%= form.text_field :nome, class:"form-control" %>
   </div>
 
-  <div class="control col-md-5">
-    <%= form.label :email %> <br>
-    <%= form.text_field :email, class:"form-control", placeholder:"@ativos.pge" %>
-  </div>
-
-  <div class="control col-md-5">
-    <%= form.label :password %> <br>
+  <div class="control col-md-4">
+    <%= form.label :password %>
     <%= form.password_field :password, class:"form-control" %>
   </div>
 
   <div class="control col-md-5">
-    <%= form.label :password_confirmation %> <br>
+    <%= form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"@ativos.pge" %>
+  </div>
+
+  <div class="control col-md-4">
+    <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation, class:"form-control" %>
+  </div>
+
+  <div class="control col-md-4"><br>
+    <%= form.label :status, "Ativo/Inativo" %> 
+    <%= form.check_box :status %>
   </div>
 </div>
 

@@ -4,7 +4,12 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :password, length: { in: 8..10 }
-  validates :password_confirmation, length: { in: 8..10 }
+  #validates :password, length: { in: 8..12 }
+  #validates :password_confirmation, length: { in: 8..12 }
   
+  def check_status
+    { true => "Ativo", false => "Inativo" }.fetch(status)
+  end
+
+
 end

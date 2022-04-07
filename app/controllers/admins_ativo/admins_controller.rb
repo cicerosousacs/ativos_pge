@@ -1,6 +1,7 @@
 class AdminsAtivo::AdminsController < AdminsAtivoController
-  #before_action :verify_password, only: [:update]
+  before_action :check_senhas, only: [:update]
   before_action :set_admin, only: [:edit, :update, :destroy]
+  
 
   def index
     @admins = Admin.all
@@ -26,7 +27,7 @@ class AdminsAtivo::AdminsController < AdminsAtivoController
     if @admin.update(params_admin)
       redirect_to admins_ativo_admins_path, notice: "Administrador atualizado. Sucesso!"
     else
-      render :new
+      render :edit
     end
   end
 
@@ -41,14 +42,14 @@ class AdminsAtivo::AdminsController < AdminsAtivoController
   private
 
   def params_admin
-    params_admin = params.require(:admin).permit(:nome, :email, :password, :password_confirmation)
+    params.require(:admin).permit(:nome, :email, :password, :password_confirmation, :status)
   end
 
   def set_admin
     @admin = Admin.find(params[:id])
   end
 
-  def verify_password
+  def check_senhas
     if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
       params[:admin].extract!(:password, :password_confirmation)
     end

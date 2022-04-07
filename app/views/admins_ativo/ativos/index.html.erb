@@ -1,22 +1,26 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <%= link_to new_admins_ativo_ativo_path do %>
-      <button class="btn btn-success" type="button">Novo Ativo</button>
-    <% end %>
-    <button type="button" id="btn-vincular" class="btn btn-info">Vincular ao Déposito</button>
-    <form class="d-none d-sm-inline-block form-inliness mr-auto ml-md-3 my-2 my-md-0 mw-100">
-      <div class="input-group">
-        <%= form_tag(admins_ativo_admins_path, method: :post) do %>
-          <%= text_field_tag 'search', nil, class:"form-control border-1 small", placeholder:'Tombo, Serial ou Modelo'%>
-        <% end %>
-        <div class="input-group-append">
-          <%= button_tag type:'submit', class:"btn btn-primary" do %>
-            <i class="fas fa-search fa-sm"></i>
+    <div>
+      <%= link_to new_admins_ativo_ativo_path do %>
+        <button class="btn btn-success" type="button">Novo Ativo</button>
+      <% end %>
+      <button type="button" id="btn-vincular" class="btn btn-info">Vincular ao Déposito</button>
+    </div>
+    <div>
+      <form class="d-none d-sm-inline-block form-inliness mr-auto ml-md-3 my-2 my-md-0 mw-100">
+        <div class="input-group">
+          <%= form_tag(admins_ativo_admins_path, method: :post) do %>
+            <%= text_field_tag 'search', nil, class:"form-control border-1 small", placeholder:'Tombo, Serial ou Modelo'%>
           <% end %>
+          <div class="input-group-append">
+            <%= button_tag type:'submit', class:"btn btn-primary" do %>
+              <i class="fas fa-search fa-sm"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
   <div class="card-body">
     <table class="table table-hover table-bordered">

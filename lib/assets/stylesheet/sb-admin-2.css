@@ -4550,6 +4550,8 @@ input[type="button"].btn-block {
 }
 
 .card-header {
+  display: flex !important;
+  justify-content: space-between !important;
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: #f8f9fc;

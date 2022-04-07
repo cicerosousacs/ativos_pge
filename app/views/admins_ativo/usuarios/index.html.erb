@@ -23,7 +23,7 @@
     <% @usuarios.each do |usuario| %>
       <tr>
         <td><%= usuario.nome %></td>
-        <td><%= usuario.suporte %></td>
+        <td><%= usuario.check_varios_vinculos %></td>
         <td style="width: 10px">
           <%= link_to edit_admins_ativo_usuario_path(usuario) do %>
             <i class="fa fa-edit"></i>

@@ -15,7 +15,7 @@
     <tr>
       <th>Nome
       <th>Email
-      <th>
+      <th>Status
       </th>
     </tr>
   </thead>
@@ -24,6 +24,7 @@
       <tr>
         <td><%= admin.nome %></td>
         <td><%= admin.email %></td>
+        <td><%= admin.check_status %></td>
         <td style="width: 10px">
           <%= link_to edit_admins_ativo_admin_path(admin) do %>
             <i class="fa fa-edit"></i>

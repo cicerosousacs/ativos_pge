@@ -19,7 +19,7 @@
         <div class="form-group col-md-3">
           <code>*</code>
           <%= form.label :tipo %>
-            <%= link_to new_admins_ativo_tipo_path do %>
+            <%= link_to new_admins_ativo_tipo_path, remote: true, data: { target: '#tipomodal', toggle: 'modal' } do %>
               <i class="fa fa-plus" style="color:green"></i>
             <% end %>
           <%= form.select("tipo_id", @tipo_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>

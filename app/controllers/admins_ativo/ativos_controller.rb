@@ -15,18 +15,22 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   end
 
   def vincular_deposito
+  byebug
     Vinculo.find_or_create_by!(
       area_id: "1",
-      subarea_id: "1",
+      subarea_id: "3",
       usuario_id: "6",
       observacao: "Relação de Ativos Disponíveis"
     )
-    todos_ativos = params[:ativos_ids]
-
-      #todos_ativos.each do |ativo|
-      #  Addativo.find_or_create_by(params[:ativos_ids])
-      #end
-
+    select_ativos = params
+      select_ativos.each do |ativo|
+        Addativo.create!(
+          vinculo_id:"17",
+          ativo_id: ativo,
+          condicao_id:"1"
+        )  
+      end
+    #Addativo.find_or_create_by(params[:ativos_ids])
   end
 
   def new
@@ -69,7 +73,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def params_ativo
     params_ativo = params.require(:ativo).permit(:tipo_id, :marca_id, :modelo, :serial, :tombo, 
-                                                  :especificacao, :data_aquisicao, :garantia, :aquisicao_id, ativos:[])
+                                                  :especificacao, :data_aquisicao, :garantia, :aquisicao_id, ativos_ids:[])
   end
 
   def set_ativo

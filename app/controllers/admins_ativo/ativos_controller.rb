@@ -22,7 +22,7 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
       usuario_id: "6",
       observacao: "Relação de Ativos Disponíveis"
     )
-    select_ativos = params
+    select_ativos = params#[:ativos_ids]
       select_ativos.each do |ativo|
         Addativo.create!(
           vinculo_id:"17",
@@ -30,7 +30,6 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
           condicao_id:"1"
         )  
       end
-    #Addativo.find_or_create_by(params[:ativos_ids])
   end
 
   def new

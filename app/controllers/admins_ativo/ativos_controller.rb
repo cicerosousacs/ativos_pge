@@ -21,14 +21,16 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
       usuario_id: "1",
       observacao: "Relação de Ativos Disponíveis"
     )
+
     vincula_ativos = params[:ativos_ids].split(',')
-      vincula_ativos.each do |ativo|
-        Addativo.find_or_create_by!(
-          vinculo_id:"1",
-          ativo_id: ativo.to_i,
-          condicao_id:"1"
-        )  
-      end
+    
+    vincula_ativos.each do |ativo|
+      Addativo.find_or_create_by!(
+        vinculo_id:"1",
+        ativo_id: ativo.to_i,
+        condicao_id:"1"
+      )  
+    end
   end
 
   def new

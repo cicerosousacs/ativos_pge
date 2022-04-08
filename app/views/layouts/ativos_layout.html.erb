@@ -216,56 +216,54 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-  <!-- Modal -->
-  <div class="modal fade" id="tipomodal" data-backdrop="static" data-keyboard="false" aria-labelledby="tipomodalLabel">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-      <div class="modal-content">
+    <!-- Modal -->
+    <div class="modal fade" id="ativomodal" data-backdrop="static" data-keyboard="false" aria-labelledby="ativomodalLabel">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+
+        </div>
       </div>
     </div>
-  </div>
 
-  <%= javascript_include_tag 'application'%>
-  <%= javascript_include_tag 'admins_ativo'%>
-  
+    <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'admins_ativo'%>
+    
 
-  <% if notice %>
-    <%= javascript_tag do %>
-      $.bootstrapGrowl('<%= notice %>', {
-      type: 'success', 
-      align: 'right',
-      width: 350,
-      delay: 3000, 
-      allow_dismiss: true, 
-      stackup_spacing: 10 
-      });
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl('<%= notice %>', {
+        type: 'success', 
+        align: 'right',
+        width: 350,
+        delay: 3000, 
+        allow_dismiss: true, 
+        stackup_spacing: 10 
+        });
+      <% end %>
     <% end %>
-  <% end %>
 
+    <script>
 
-  <script>
+      jQuery(document).ready(function ($) {
+        $('.masc-data').mask('00/00/0000');
+        $('.masc-cep').mask('00000-000');
+        $('.masc-telefone').mask('(00) 0000-0000');
+        $('.masc-celular').mask('(00) 0 0000-0000');
+        $('.masc-contrato').mask('00/0000');
+        $('.masc-cpf').mask('000.000.000-00', { reverse: true });
+        $('.masc-cnpj').mask('00.000.000/0000-00', { reverse: true });
+        $('.masc-dinheiro').mask('000.000.000.000.000,00', { reverse: true });
+      });
 
-    jQuery(document).ready(function ($) {
-      $('.masc-data').mask('00/00/0000');
-      $('.masc-cep').mask('00000-000');
-      $('.masc-telefone').mask('(00) 0000-0000');
-      $('.masc-celular').mask('(00) 0 0000-0000');
-      $('.masc-contrato').mask('00/0000');
-      $('.masc-cpf').mask('000.000.000-00', { reverse: true });
-      $('.masc-cnpj').mask('00.000.000/0000-00', { reverse: true });
-      $('.masc-dinheiro').mask('000.000.000.000.000,00', { reverse: true });
-    });
+      $(function(){
+        $('.mask_real').maskMoney({
+          prefix:'R$ ',
+          allowNegative: true,
+          thousands:'.', decimal:',',
+          affixesStay: true});
+      })
 
-    $(function(){
-      $('.mask_real').maskMoney({
-        prefix:'R$ ',
-        allowNegative: true,
-        thousands:'.', decimal:',',
-        affixesStay: true});
-    })
-
-  </script>
-
-
+    </script>
 
   </body>
 

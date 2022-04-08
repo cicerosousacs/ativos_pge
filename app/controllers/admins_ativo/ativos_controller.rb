@@ -15,18 +15,17 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
   end
 
   def vincular_deposito
-  byebug
     Vinculo.find_or_create_by!(
       area_id: "1",
-      subarea_id: "3",
-      usuario_id: "6",
+      subarea_id: "1",
+      usuario_id: "1",
       observacao: "Relação de Ativos Disponíveis"
     )
-    select_ativos = params#[:ativos_ids]
-      select_ativos.each do |ativo|
-        Addativo.create!(
-          vinculo_id:"17",
-          ativo_id: ativo,
+    vincula_ativos = params[:ativos_ids].split(',')
+      vincula_ativos.each do |ativo|
+        Addativo.find_or_create_by!(
+          vinculo_id:"1",
+          ativo_id: ativo.to_i,
           condicao_id:"1"
         )  
       end
@@ -34,10 +33,6 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
 
   def new
     @ativo = Ativo.new
-    respond_to do |format|
-      format.html
-      format.js { render partial: 'admins_ativo/ativos/tipo' }
-    end
   end
 
   def create

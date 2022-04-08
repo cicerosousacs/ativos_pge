@@ -2,11 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//= require jquery_ujs
-//= require jquery/jquery
 //= require bootstrap/js/bootstrap.bundle.min
 //= require jquery-easing/jquery.easing.min
-//= require sb-admin-2.js
+//= require sb-admin-2
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require cocoon
 //= require jquery.maskMoney.min.js

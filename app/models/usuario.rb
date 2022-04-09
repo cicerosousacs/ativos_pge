@@ -3,7 +3,7 @@ class Usuario < ApplicationRecord
   has_many :ativos, through: :vinculo
 
   def check_varios_vinculos
-    { true => "Sim", false => "Não" }.fetch(suporte)
+    { true => "Sim", false => "Não", nil => "Não" }.fetch(suporte)
   end
 
 end

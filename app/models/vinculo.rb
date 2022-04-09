@@ -8,8 +8,8 @@ class Vinculo < ApplicationRecord
   accepts_nested_attributes_for :addativos, reject_if: :all_blank, allow_destroy: true
 
   # VALIDAÇÔES
-  #validates :addativos, presence: true
-  #validates :addativos, presence: { message: "É necessario incluir ao menos um Ativo!"}
+  validates :addativos, presence: true
+  validates :addativos, presence: { message: "É necessario incluir ao menos um Ativo!"}
   
   validates :usuario_id, uniqueness: true, unless: -> { usuario.suporte == true }
   # Outra forma de fazer a validação 

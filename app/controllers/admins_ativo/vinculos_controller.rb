@@ -16,6 +16,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   end
 
   def create
+    byebug
     @vinculo = Vinculo.new(params_vinculo)
     if @vinculo.save()
       redirect_to admins_ativo_vinculos_path, notice: "Vinculo criado, Parabéns!"
@@ -46,7 +47,7 @@ class AdminsAtivo::VinculosController < AdminsAtivoController
   private
 
   def params_vinculo
-    params_vinculo = params.require(:vinculo).permit(
+    params.require(:vinculo).permit(
       :usuario_id, 
       :area_id, 
       :subarea_id, 

@@ -8,7 +8,7 @@ class Admin < ApplicationRecord
   #validates :password_confirmation, length: { in: 8..12 }
   
   def check_status
-    { true => "Ativo", false => "Inativo" }.fetch(status)
+    { true => "Ativo", false => "Inativo", nil => "Inativo" }.fetch(status)
   end
 
 

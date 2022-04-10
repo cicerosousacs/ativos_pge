@@ -7,6 +7,10 @@ class AdminsAtivo::TiposController < AdminsAtivoController
 
   def new
     @tipo = Tipo.new
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'tipos/tipo' }
+    end
   end
 
   def create

@@ -37,6 +37,13 @@ class AdminsAtivo::AtivosController < AdminsAtivoController
     @ativo = Ativo.new
   end
 
+  def new_tipo
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'ativos/tipo' }
+    end
+  end
+
   def create
     @ativo = Ativo.new(params_ativo)
     if @ativo.save()

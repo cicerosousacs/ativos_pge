@@ -17,7 +17,7 @@
         <div class="form-group col-md-3">
           <code>*</code>
           <%= form.label :tipo %>
-            <%= link_to new_admins_ativo_tipo_path do %>
+            <%= link_to new_admins_ativo_tipo_path, remote: true do %>
               <i class="fa fa-plus" style="color:green"></i>
             <% end %>
           <%= form.select("tipo_id", @tipo_selects, {include_blank: 'Selecione...'}, class:"form-control selectsearch") %>
@@ -63,5 +63,31 @@
       </div>
 
     <% end %>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TipoModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="TipoModal" tabindex="-1" aria-labelledby="TipoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TipoModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-dialog-centered">
+        Estou no formulario ainda....
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

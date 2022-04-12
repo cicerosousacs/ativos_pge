@@ -7,7 +7,5 @@
 //= require sb-admin-2
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require cocoon
-//= require jquery.maskMoney.min.js
-//= require jQuery-Mask-Plugin-master/dist/jquery.mask.min.js
-
-
+//= require jquery.maskMoney.min
+//= require jQuery-Mask-Plugin-master/dist/jquery.mask.min

@@ -12,7 +12,7 @@ class Ativo < ApplicationRecord
 
   # VALIDAÇÔES
   validates :modelo, :serial, :tombo, presence: true
-  validates :tombo, uniqueness: {message: "Esse tombo ja existe. "}
+  #validates :tombo, uniqueness: {message: " ja existe. "}
   
   # METODOS
 
